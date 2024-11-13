@@ -20,7 +20,7 @@ Dans un monde où les bougies sont les âmes d’anciens aventuriers piégés pa
 ## Installation et Démarrage
 
 Prérequis
-- Unity (version recommandée : 202X.X.X)
+- Unity (version recommandée : 6000.0.23)
 - Git
 - Un compte sur GitHub pour accéder au repository privé.
 
