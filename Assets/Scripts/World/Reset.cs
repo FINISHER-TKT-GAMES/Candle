@@ -1,9 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Reset : MonoBehaviour {
 
-    public const float timeBeforeReset = 5; // En secondes
+    public const float RESET_TIME = 5; // En secondes
+    public float timeLeft;
 
     public bool isTimerRunning;
     public bool win; // Variable provisoire
@@ -11,7 +13,7 @@ public class Reset : MonoBehaviour {
 
     void Start() {
         // Démarre le timer en tâche de fond
-        StartCoroutine(Time(timeBeforeReset));
+        StartCoroutine(Time(RESET_TIME));
     }
 
     void Update() {
@@ -23,12 +25,12 @@ public class Reset : MonoBehaviour {
     // Attend [time] secondes et ensuite reset le monde
     public IEnumerator Time(float time) {
         isTimerRunning = true;
-        float timeElapsed = 0f;
+        timeLeft = RESET_TIME;
 
-        while (timeElapsed < time) {
-            PrintTime(timeElapsed);
-            yield return new WaitForSeconds(1f);
-            timeElapsed++;
+        while (timeLeft >= 0) {
+            yield return new WaitForSeconds(1);
+            PrintTime(timeLeft);
+            timeLeft--;
         }
         ResetWorld();
     }
@@ -42,6 +44,7 @@ public class Reset : MonoBehaviour {
     // Fonction pour reset le monde une fois la boucle terminée
     private void ResetWorld() {
         Debug.Log("Reset!");
+        SceneManager.LoadScene("test");
         StopTime();
     }
 
@@ -54,7 +57,6 @@ public class Reset : MonoBehaviour {
 
     // Affiche le temps restant avant le reset
     private void PrintTime(float time) {
-        float timeLeft = timeBeforeReset - time;
-        Debug.Log("Time left: " + timeLeft + "s");
+        Debug.Log("Time left: " + time + "s");
     }
 }
