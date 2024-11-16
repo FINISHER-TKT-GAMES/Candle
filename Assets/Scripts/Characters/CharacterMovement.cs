@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // This class is used to manage the movement of the character
-public class CharacterMouvement : MonoBehaviour {
+public class CharacterMovement : MonoBehaviour {
 
     public CharacterController controller;
 
