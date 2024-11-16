@@ -1,8 +1,11 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Reset : MonoBehaviour {
+
+    public Text timerText;
 
     public const float RESET_TIME = 5; // En secondes
     public float timeLeft;
@@ -57,6 +60,6 @@ public class Reset : MonoBehaviour {
 
     // Affiche le temps restant avant le reset
     private void PrintTime(float time) {
-        Debug.Log("Time left: " + time + "s");
+        timerText.text = "Reset dans " + time.ToString() + "s";
     }
 }
