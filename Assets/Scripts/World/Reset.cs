@@ -7,7 +7,7 @@ public class Reset : MonoBehaviour {
 
     public Text timerText;
 
-    public const float RESET_TIME = 5; // En secondes
+    public const float RESET_TIME = 30; // En secondes
     public float timeLeft;
 
     public bool isTimerRunning;
