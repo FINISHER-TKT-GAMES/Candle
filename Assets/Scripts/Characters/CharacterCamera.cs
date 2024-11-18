@@ -6,14 +6,11 @@ public class CharacterCamera : MonoBehaviour
     [Header("References")]
     public Transform orientation;
     public Transform player;
-    public Transform playerObj;
-    public Rigidbody rb;
 
     public float rotationSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    void Start() {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
@@ -21,8 +18,8 @@ public class CharacterCamera : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
-    {
+    private void Update() {
+        
         // rotate orientation
         Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
         orientation.forward = viewDir.normalized;
@@ -34,6 +31,5 @@ public class CharacterCamera : MonoBehaviour
         // we rotate the camera
         transform.Rotate(-mouseY, mouseX, 0.0f);
         
-         
     }
 }

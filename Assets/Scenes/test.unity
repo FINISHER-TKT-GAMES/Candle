@@ -433,8 +433,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 389017280}
-  - component: {fileID: 389017279}
   - component: {fileID: 389017278}
+  - component: {fileID: 389017281}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -467,20 +467,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &389017279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389017277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c43933a136e839148b3ac2e6dff11939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 389017278}
-  playerSpeed: 10
 --- !u!4 &389017280
 Transform:
   m_ObjectHideFlags: 0
@@ -500,6 +486,20 @@ Transform:
   - {fileID: 1832058607}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &389017281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389017277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43933a136e839148b3ac2e6dff11939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 389017278}
+  playerSpeed: 10
 --- !u!1 &487928122
 GameObject:
   m_ObjectHideFlags: 0
