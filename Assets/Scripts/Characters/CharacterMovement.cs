@@ -7,7 +7,7 @@ public class CharacterMovement : MonoBehaviour {
 
     public Transform Cam;
     public CharacterController Controller;
-
+    public Transform Character;
 
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
@@ -34,5 +34,8 @@ public class CharacterMovement : MonoBehaviour {
 
         Vector3 move = cameraForward * z + cameraRight * x;
         Controller.Move(playerSpeed * Time.deltaTime * move);
+
+        Quaternion rotation = Quaternion.LookRotation(move, Vector3.up);
+        Character.rotation = Quaternion.RotateTowards(Character.rotation, rotation, 100000 * Time.deltaTime);
     }
 }
