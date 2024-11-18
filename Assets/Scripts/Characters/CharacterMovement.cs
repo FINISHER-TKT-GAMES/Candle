@@ -1,25 +1,35 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 // This class is used to manage the movement of the character
 public class CharacterMovement : MonoBehaviour {
-
-    public float playerSpeed = 10;
 
     public Transform Cam;
     public CharacterController Controller;
     public Transform Character;
 
+    private Vector3 move;
+    private Quaternion rotation;
+
+    private int sharpSpeed = 6000;
+    private int smoothSpeed = 400;
+
+    private float playerSpeed = 10;
+
+
     void Start() {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
     }
 
-    // Update is called once per frame
     void Update() {
         Movement();
+        Rotate();
     }
 
-    void Movement() {
+    
+    // Movements du joueur relatif à la rotation de la caméra
+    private void Movement() {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -32,10 +42,25 @@ public class CharacterMovement : MonoBehaviour {
         cameraForward.Normalize();
         cameraRight.Normalize();
 
-        Vector3 move = cameraForward * z + cameraRight * x;
+        move = cameraForward * z + cameraRight * x;
         Controller.Move(playerSpeed * Time.deltaTime * move);
-
-        Quaternion rotation = Quaternion.LookRotation(move, Vector3.up);
-        Character.rotation = Quaternion.RotateTowards(Character.rotation, rotation, 100000 * Time.deltaTime);
     }
-}
+
+    // Rotation du modèle du joueur
+    private void Flip(int speed) {
+        rotation = Quaternion.LookRotation(move, Vector3.up);
+        Character.rotation = Quaternion.RotateTowards(Character.rotation, rotation, speed * Time.deltaTime);
+    }
+
+    // Logique de rotation du joueur
+    private void Rotate() {
+        if (move != Vector3.zero) {
+            if (Character.rotation == Quaternion.Inverse(rotation)) {
+                Flip(sharpSpeed);
+            }
+            else {
+                Flip(smoothSpeed);
+            }
+            }
+        }
+    }
