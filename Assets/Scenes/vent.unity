@@ -5071,10 +5071,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 638267160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ad888bb71e17b40ad185aeeb96bd07, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f5e993eaa88c6145aef1643a2a5aaf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windStrength: 3
+  windStrength: 5
 --- !u!1 &653984813
 GameObject:
   m_ObjectHideFlags: 0
