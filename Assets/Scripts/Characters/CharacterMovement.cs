@@ -19,7 +19,7 @@ public class CharacterMovement : MonoBehaviour {
     private int smoothSpeed = 400;
 
     private float playerSpeed = 10;
-    private float jumpHeight = 10;
+    private float jumpHeight = 50f;
     [SerializeField] private bool isGrounded;
 
     void Start() {
@@ -32,6 +32,7 @@ public class CharacterMovement : MonoBehaviour {
         Rotate();
 
         Gravity();
+        Jump();
     }
 
     
@@ -51,6 +52,13 @@ public class CharacterMovement : MonoBehaviour {
 
         move = cameraForward * z + cameraRight * x;
         Controller.Move(playerSpeed * Time.deltaTime * move);
+    }
+
+    private void Jump() {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
+            Debug.Log("JUMP");
+            Player.AddForce(new Vector3(Player.linearVelocity.x, Player.linearVelocity.y + jumpHeight, Player.linearVelocity.z), ForceMode.Impulse);
+        }
     }
 
     private void Gravity() {

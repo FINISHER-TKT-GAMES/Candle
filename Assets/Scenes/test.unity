@@ -416,6 +416,10 @@ PrefabInstance:
       value: CoolCandle
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 98798e2b245df4648a9e1de55738d58b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 98798e2b245df4648a9e1de55738d58b, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -436,7 +440,7 @@ GameObject:
   - component: {fileID: 389017278}
   - component: {fileID: 389017281}
   - component: {fileID: 389017282}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,7 +508,7 @@ MonoBehaviour:
   Controller: {fileID: 389017278}
   Character: {fileID: 1112313219}
   Player: {fileID: 389017282}
-  GroundCheck: {x: 0, y: 0, z: 0}
+  GroundCheck: {fileID: 1700912998}
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -738,7 +742,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1112313219}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +811,7 @@ GameObject:
   - component: {fileID: 1220030262}
   - component: {fileID: 1220030258}
   - component: {fileID: 1220030257}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FreeLook Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1149,7 +1153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1700912998}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1165,7 +1169,7 @@ Transform:
   m_GameObject: {fileID: 1700912997}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.56, z: 0}
+  m_LocalPosition: {x: 0, y: -1.512, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1180,7 +1184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1832058607}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1215,7 +1219,7 @@ GameObject:
   - component: {fileID: 1881939090}
   - component: {fileID: 1881939093}
   - component: {fileID: 1881939094}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
