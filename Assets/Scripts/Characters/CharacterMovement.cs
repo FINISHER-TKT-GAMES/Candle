@@ -4,12 +4,12 @@ using UnityEngine.UIElements;
 // This class is used to manage the movement of the character
 public class CharacterMovement : MonoBehaviour {
 
-    public Transform Cam;
-    public CharacterController Controller;
-    public Transform Character;
+    public Transform cam;
+    public CharacterController controller;
+    public Transform character;
 
-    public Transform GroundCheck;
-    public LayerMask GroundLayer;
+    public Transform groundCheck;
+    public LayerMask groundLayer;
 
     private Vector3 move;
     private Quaternion rotation;
@@ -39,8 +39,8 @@ public class CharacterMovement : MonoBehaviour {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 cameraForward = Cam.forward;
-        Vector3 cameraRight = Cam.right;
+        Vector3 cameraForward = cam.forward;
+        Vector3 cameraRight = cam.right;
 
         cameraForward.y = 0;
         cameraRight.y = 0;
@@ -49,18 +49,18 @@ public class CharacterMovement : MonoBehaviour {
         cameraRight.Normalize();
 
         move = cameraForward * z + cameraRight * x;
-        Controller.Move(playerSpeed * Time.deltaTime * move);
+        controller.Move(playerSpeed * Time.deltaTime * move);
     }
 
     private void Gravity() {
-        isGrounded = Physics.CheckSphere(GroundCheck.position, 0.3f, GroundLayer);
+        isGrounded = Physics.CheckSphere(groundCheck.position, 0.3f, groundLayer);
 
         if (isGrounded && velocity.y < 0) {
             velocity.y = -2f;
         }
 
         velocity.y += gravity * Time.deltaTime;
-        Controller.Move(velocity * Time.deltaTime);
+        controller.Move(velocity * Time.deltaTime);
     }
 
     private void Jump() {
@@ -72,13 +72,13 @@ public class CharacterMovement : MonoBehaviour {
     // Rotation du modèle du joueur
     private void Flip(int speed) {
         rotation = Quaternion.LookRotation(move, Vector3.up);
-        Character.rotation = Quaternion.RotateTowards(Character.rotation, rotation, speed * Time.deltaTime);
+        character.rotation = Quaternion.RotateTowards(character.rotation, rotation, speed * Time.deltaTime);
     }
 
     // Logique de rotation du joueur
     private void Rotate() {
         if (move != Vector3.zero) {
-            if (Character.rotation == Quaternion.Inverse(rotation)) {
+            if (character.rotation == Quaternion.Inverse(rotation)) {
                 Flip(sharpSpeed);
             }
             else {

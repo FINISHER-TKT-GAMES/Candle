@@ -28,7 +28,7 @@ public class Reset : MonoBehaviour {
     // Attend [time] secondes et ensuite reset le monde
     public IEnumerator Time(float time) {
         isTimerRunning = true;
-        timeLeft = RESET_TIME;
+        timeLeft = time;
 
         while (timeLeft >= 0) {
             yield return new WaitForSeconds(1);
