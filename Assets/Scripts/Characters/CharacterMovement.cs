@@ -7,19 +7,20 @@ public class CharacterMovement : MonoBehaviour {
     public Transform Cam;
     public CharacterController Controller;
     public Transform Character;
-    public Rigidbody Player;
 
     public Transform GroundCheck;
     public LayerMask GroundLayer;
 
     private Vector3 move;
     private Quaternion rotation;
+    private Vector3 velocity;
 
     private int sharpSpeed = 6000;
     private int smoothSpeed = 400;
 
     private float playerSpeed = 10;
-    private float jumpHeight = 50f;
+    private float jumpHeight = 1.0f;
+    private float gravity = -9.81f;
     [SerializeField] private bool isGrounded;
 
     void Start() {
@@ -27,15 +28,12 @@ public class CharacterMovement : MonoBehaviour {
     }
 
     void Update() {
-        
         Movement();
         Rotate();
-
         Gravity();
         Jump();
     }
 
-    
     // Movements du joueur relatif à la rotation de la caméra
     private void Movement() {
         float x = Input.GetAxis("Horizontal");
@@ -54,15 +52,21 @@ public class CharacterMovement : MonoBehaviour {
         Controller.Move(playerSpeed * Time.deltaTime * move);
     }
 
-    private void Jump() {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
-            Debug.Log("JUMP");
-            Player.AddForce(new Vector3(Player.linearVelocity.x, Player.linearVelocity.y + jumpHeight, Player.linearVelocity.z), ForceMode.Impulse);
-        }
-    }
-
     private void Gravity() {
         isGrounded = Physics.CheckSphere(GroundCheck.position, 0.3f, GroundLayer);
+
+        if (isGrounded && velocity.y < 0) {
+            velocity.y = -2f;
+        }
+
+        velocity.y += gravity * Time.deltaTime;
+        Controller.Move(velocity * Time.deltaTime);
+    }
+
+    private void Jump() {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
+        velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
     }
 
     // Rotation du modèle du joueur
