@@ -7,6 +7,10 @@ public class CharacterMovement : MonoBehaviour {
     public Transform Cam;
     public CharacterController Controller;
     public Transform Character;
+    public Rigidbody Player;
+
+    public Transform GroundCheck;
+    public LayerMask GroundLayer;
 
     private Vector3 move;
     private Quaternion rotation;
@@ -15,16 +19,19 @@ public class CharacterMovement : MonoBehaviour {
     private int smoothSpeed = 400;
 
     private float playerSpeed = 10;
-
+    private float jumpHeight = 10;
+    [SerializeField] private bool isGrounded;
 
     void Start() {
-        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
-        UnityEngine.Cursor.visible = false;
+        SetCursor();
     }
 
     void Update() {
+        
         Movement();
         Rotate();
+
+        Gravity();
     }
 
     
@@ -46,6 +53,10 @@ public class CharacterMovement : MonoBehaviour {
         Controller.Move(playerSpeed * Time.deltaTime * move);
     }
 
+    private void Gravity() {
+        isGrounded = Physics.CheckSphere(GroundCheck.position, 0.3f, GroundLayer);
+    }
+
     // Rotation du modèle du joueur
     private void Flip(int speed) {
         rotation = Quaternion.LookRotation(move, Vector3.up);
@@ -61,6 +72,11 @@ public class CharacterMovement : MonoBehaviour {
             else {
                 Flip(smoothSpeed);
             }
-            }
         }
     }
+
+    private void SetCursor() {
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
+    }
+}
