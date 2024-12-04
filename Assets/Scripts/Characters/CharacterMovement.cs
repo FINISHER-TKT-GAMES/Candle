@@ -15,13 +15,7 @@ public class CharacterMovement : MonoBehaviour {
     private Quaternion rotation;
     private Vector3 velocity;
 
-    private int sharpSpeed = 6000;
-    private int smoothSpeed = 400;
-
-    private float playerSpeed = 10;
-    private float jumpHeight = 1.0f;
-    private float gravity = -9.81f;
-    [SerializeField] private bool isGrounded;
+    private bool isGrounded;
 
     void Start() {
         SetCursor();
@@ -49,7 +43,7 @@ public class CharacterMovement : MonoBehaviour {
         cameraRight.Normalize();
 
         move = cameraForward * z + cameraRight * x;
-        controller.Move(playerSpeed * Time.deltaTime * move);
+        controller.Move(wck.player.playerSpeed * Time.deltaTime * move);
     }
 
     private void Gravity() {
@@ -59,13 +53,13 @@ public class CharacterMovement : MonoBehaviour {
             velocity.y = -2f;
         }
 
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += wck.player.gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
 
     private void Jump() {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
-        velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        velocity.y = Mathf.Sqrt(wck.player.jumpHeight * -2f * wck.player.gravity);
         }
     }
 
@@ -79,10 +73,10 @@ public class CharacterMovement : MonoBehaviour {
     private void Rotate() {
         if (move != Vector3.zero) {
             if (character.rotation == Quaternion.Inverse(rotation)) {
-                Flip(sharpSpeed);
+                Flip(wck.player.sharpSpeed);
             }
             else {
-                Flip(smoothSpeed);
+                Flip(wck.player.smoothSpeed);
             }
         }
     }
