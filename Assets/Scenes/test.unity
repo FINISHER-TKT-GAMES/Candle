@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 278362538}
   - component: {fileID: 278362537}
   - component: {fileID: 278362536}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,7 +657,7 @@ GameObject:
   - component: {fileID: 479571587}
   - component: {fileID: 479571589}
   - component: {fileID: 479571588}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -905,6 +905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e92823fc8d495479c07e3d9ffff693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 1
   torchPos: {fileID: 278362535}
   playerLayer:
     serializedVersion: 2
