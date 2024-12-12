@@ -673,7 +673,7 @@ Transform:
   m_GameObject: {fileID: 479571586}
   serializedVersion: 2
   m_LocalRotation: {x: 0.71737474, y: -0, z: -0, w: 0.6966875}
-  m_LocalPosition: {x: 0, y: 1.43, z: 0}
+  m_LocalPosition: {x: 0, y: 1.4299998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -910,6 +910,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  torchLight: {fileID: 479571589}
 --- !u!4 &817948340
 Transform:
   m_ObjectHideFlags: 0

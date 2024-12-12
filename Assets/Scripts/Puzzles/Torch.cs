@@ -21,6 +21,8 @@ public class Torch : MonoBehaviour {
 
 
     void Start() {
+        torchLight.intensity = 0f;
+        
         if (ID == 1) {
             Ignite();
         }
@@ -34,11 +36,13 @@ public class Torch : MonoBehaviour {
 
     // Allume légèrement la flamme de la torche
     private void Ignite() {
+        torchLight.intensity = wck.torch.lowIntensity;
         currentState = lightState.ignited;
     }
 
     // Allume complètement la flamme de la torche
     private void LightUp() {
+        torchLight.intensity = wck.torch.highIntensity;
         currentState = lightState.on;
     }
 
