@@ -11,17 +11,32 @@ public struct player {
     public int currentTorch;
 }
 
+public struct torch {
+    public float detectionRange;
+    public float lowIntensity;
+    public float highIntensity;
+}
+
+
 public class wck : MonoBehaviour {
 
     public static player player;
+    public static torch torch;
 
     public static void Init() {
+
+        // Player
         player.sharpSpeed = 6000;
         player.smoothSpeed = 400;
         player.playerSpeed = 10;
         player.jumpHeight = 1.0f;
         player.gravity = -9.81f;
         player.currentTorch = 0;
+
+        // Torches
+        torch.detectionRange = 5f;
+        torch.lowIntensity = 0.20f;
+        torch.highIntensity = 1.0f;
     }
 
     void Start() {

@@ -9,7 +9,6 @@ public class Torch : MonoBehaviour {
     public Transform torchPos;
     public LayerMask playerLayer;
     private bool playerNear = false;
-    private float detectionRange = 5f;
 
     // Lumière
     public Light torchLight;
@@ -32,6 +31,7 @@ public class Torch : MonoBehaviour {
         HandleLighting();
     }
 
+
     // Allume légèrement la flamme de la torche
     private void Ignite() {
         currentState = lightState.ignited;
@@ -45,7 +45,7 @@ public class Torch : MonoBehaviour {
     // Scan si le joueur est autour de la torche
     private void Scan() {
         if (currentState != lightState.on) {
-            playerNear = Physics.CheckSphere(torchPos.position, detectionRange, playerLayer);  
+            playerNear = Physics.CheckSphere(torchPos.position, wck.torch.detectionRange, playerLayer);  
             
             if (playerNear) {
             wck.player.currentTorch = ID;
