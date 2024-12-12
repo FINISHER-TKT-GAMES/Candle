@@ -7,6 +7,8 @@ public struct player {
     public float playerSpeed;
     public float jumpHeight;
     public float gravity;
+
+    public int currentTorch;
 }
 
 public class wck : MonoBehaviour {
@@ -19,6 +21,7 @@ public class wck : MonoBehaviour {
         player.playerSpeed = 10;
         player.jumpHeight = 1.0f;
         player.gravity = -9.81f;
+        player.currentTorch = 0;
     }
 
     void Start() {
