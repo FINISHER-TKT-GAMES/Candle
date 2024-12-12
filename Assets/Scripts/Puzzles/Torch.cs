@@ -22,7 +22,7 @@ public class Torch : MonoBehaviour {
 
     void Start() {
         torchLight.intensity = 0f;
-        
+
         if (ID == 1) {
             Ignite();
         }
@@ -53,7 +53,6 @@ public class Torch : MonoBehaviour {
             
             if (playerNear) {
             wck.player.currentTorch = ID;
-            Debug.Log("Player is near torch " + ID + "Light: " + currentState);
             }  
         }
     }
