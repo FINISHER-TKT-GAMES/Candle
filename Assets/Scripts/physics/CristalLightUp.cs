@@ -4,6 +4,7 @@ using System.Drawing;
 using UnityEngine.Experimental.GlobalIllumination;
 public class CristalLightUp : MonoBehaviour
 {
+    
     //when the player enters the trigger, light up progressively the cristal
     private void OnTriggerEnter(Collider other)
     {
