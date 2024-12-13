@@ -59,7 +59,10 @@ public class CharacterMovement : MonoBehaviour {
 
     private void Jump() {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
+            wck.player.playerSpeed = 20;
         velocity.y = Mathf.Sqrt(wck.player.jumpHeight * -2f * wck.player.gravity);
+        } else {
+            wck.player.playerSpeed = 10;
         }
     }
 

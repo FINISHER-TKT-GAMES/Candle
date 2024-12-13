@@ -32,7 +32,7 @@ public class wck : MonoBehaviour {
         player.smoothSpeed = 400;
         player.playerSpeed = 10;
 
-        player.jumpHeight = 1.0f;
+        player.jumpHeight = 1.4f;
         player.gravity = -9.81f;
 
         player.currentTorch = 0;
