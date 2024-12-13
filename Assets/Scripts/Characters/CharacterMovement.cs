@@ -81,6 +81,7 @@ public class CharacterMovement : MonoBehaviour {
         }
     }
 
+    // Lock le curseur sur la fenêtre du jeu
     private void SetCursor() {
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;

@@ -10,6 +10,7 @@ public struct player {
 
     public int currentTorch;
     public int torchCount;
+    public int torchMax;
 }
 
 public struct torch {
@@ -30,10 +31,13 @@ public class wck : MonoBehaviour {
         player.sharpSpeed = 6000;
         player.smoothSpeed = 400;
         player.playerSpeed = 10;
+
         player.jumpHeight = 1.0f;
         player.gravity = -9.81f;
+
         player.currentTorch = 0;
         player.torchCount = 0;
+        player.torchMax = 3;
 
         // Torches
         torch.detectionRange = 5f;

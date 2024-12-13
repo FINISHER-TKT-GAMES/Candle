@@ -16,11 +16,7 @@ public class Torch : MonoBehaviour {
     // Lumière
     public Light torchLight;
     private lightState currentState = lightState.off;
-    private enum lightState {
-        off,
-        ignited,
-        on
-    }
+    private enum lightState {off, ignited, on}
 
 
     void Start() {
@@ -73,9 +69,10 @@ public class Torch : MonoBehaviour {
         }
     }
 
+    // Vérifie si le joueur a activé toutes les torches
     private void CheckTorchCount() {
         Debug.Log("torch count: " + wck.player.torchCount);
-        if (wck.player.torchCount >= 3) {
+        if (wck.player.torchCount >= wck.player.torchMax) {
             end.Unlock();
         }
     }
