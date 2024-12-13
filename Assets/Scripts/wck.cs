@@ -9,6 +9,7 @@ public struct player {
     public float gravity;
 
     public int currentTorch;
+    public int torchCount;
 }
 
 public struct torch {
@@ -32,6 +33,7 @@ public class wck : MonoBehaviour {
         player.jumpHeight = 1.0f;
         player.gravity = -9.81f;
         player.currentTorch = 0;
+        player.torchCount = 0;
 
         // Torches
         torch.detectionRange = 5f;

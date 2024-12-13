@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Torch : MonoBehaviour {
 
+    // Import
+    public End end;
+
     // ID
     [SerializeField] private int ID;
 
@@ -53,6 +56,8 @@ public class Torch : MonoBehaviour {
             
             if (playerNear) {
             wck.player.currentTorch = ID;
+            wck.player.torchCount++;
+            CheckTorchCount();
             }  
         }
     }
@@ -65,6 +70,13 @@ public class Torch : MonoBehaviour {
 
         if (ID == wck.player.currentTorch + 1) {
             Ignite();
+        }
+    }
+
+    private void CheckTorchCount() {
+        Debug.Log("torch count: " + wck.player.torchCount);
+        if (wck.player.torchCount >= 3) {
+            end.Unlock();
         }
     }
 }
