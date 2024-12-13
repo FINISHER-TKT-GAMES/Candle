@@ -1,35 +1,34 @@
 using UnityEngine;
 
-// This class is used to manage the camera of the character using the mouse and the cinemachine asset
-public class CharacterCamera : MonoBehaviour
-{
+public class CharacterCamera : MonoBehaviour {
     [Header("References")]
     public Transform orientation;
     public Transform player;
 
     public float rotationSpeed;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-
+        SetCursor();
     }
 
-    // Update is called once per frame
-    private void Update() {
+    void Update() {
         
-        // rotate orientation
+        // Rotation de l'orientation de la Camera
         Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
         orientation.forward = viewDir.normalized;
 
-        // we use the mouse to move the camera
+        // Définition des inputs
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 
-        // we rotate the camera
+        // Rotation de la Camera en fonction des inputs
         transform.Rotate(-mouseY, mouseX, 0.0f);
         
+    }
+
+        // Lock le curseur sur la fenêtre du jeu
+    private void SetCursor() {
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
     }
 }

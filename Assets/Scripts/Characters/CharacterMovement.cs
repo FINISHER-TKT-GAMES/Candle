@@ -18,7 +18,6 @@ public class CharacterMovement : MonoBehaviour {
     private bool isGrounded;
 
     void Start() {
-        SetCursor();
     }
 
     void Update() {
@@ -79,11 +78,5 @@ public class CharacterMovement : MonoBehaviour {
                 Flip(wck.player.smoothSpeed);
             }
         }
-    }
-
-    // Lock le curseur sur la fenêtre du jeu
-    private void SetCursor() {
-        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
-        UnityEngine.Cursor.visible = false;
     }
 }
