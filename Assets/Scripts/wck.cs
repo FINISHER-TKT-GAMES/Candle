@@ -5,6 +5,9 @@ public struct player {
     public int smoothSpeed;
 
     public float playerSpeed;
+    public float speedBoost;
+    public float momentum;
+
     public float jumpHeight;
     public float gravity;
 
@@ -30,7 +33,10 @@ public class wck : MonoBehaviour {
         // Player
         player.sharpSpeed = 6000;
         player.smoothSpeed = 400;
+
         player.playerSpeed = 10;
+        player.speedBoost = 8;
+        player.momentum = 0;
 
         player.jumpHeight = 1.4f;
         player.gravity = -9.81f;

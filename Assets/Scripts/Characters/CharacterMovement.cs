@@ -1,5 +1,6 @@
+using System.Collections;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 // This class is used to manage the movement of the character
 public class CharacterMovement : MonoBehaviour {
@@ -43,7 +44,7 @@ public class CharacterMovement : MonoBehaviour {
         cameraRight.Normalize();
 
         move = cameraForward * z + cameraRight * x;
-        controller.Move(wck.player.playerSpeed * Time.deltaTime * move);
+        controller.Move((wck.player.playerSpeed + wck.player.momentum) * Time.deltaTime * move);
     }
 
     private void Gravity() {
@@ -57,13 +58,26 @@ public class CharacterMovement : MonoBehaviour {
         controller.Move(velocity * Time.deltaTime);
     }
 
+    // Fonction de saut du joueur
     private void Jump() {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
-            wck.player.playerSpeed = 20;
+            AddMomentum();
         velocity.y = Mathf.Sqrt(wck.player.jumpHeight * -2f * wck.player.gravity);
-        } else {
-            wck.player.playerSpeed = 10;
         }
+    }
+
+    // Ajoute de l'accélération au joueur
+    private void AddMomentum() {
+        wck.player.momentum = wck.player.speedBoost;
+        StartCoroutine(Momentum());
+    }
+
+    // Gère l'accélération du joueur au fil du temps
+    private IEnumerator Momentum() {
+            while (wck.player.momentum >= 1) {
+            yield return new WaitForSeconds(0.05f);
+            wck.player.momentum--;
+            }
     }
 
     // Rotation du modèle du joueur
