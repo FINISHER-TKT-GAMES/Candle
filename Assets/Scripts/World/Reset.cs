@@ -7,16 +7,13 @@ public class Reset : MonoBehaviour {
 
     public Text timerText;
 
-    public const float RESET_TIME = 30; // En secondes
-    public float timeLeft;
-
     public bool isTimerRunning;
     public bool win; // Variable provisoire
 
 
     void Start() {
         // Démarre le timer en tâche de fond
-        StartCoroutine(Time(RESET_TIME));
+        StartCoroutine(Time(wck.world.resetTime));
     }
 
     void Update() {
@@ -28,12 +25,12 @@ public class Reset : MonoBehaviour {
     // Attend [time] secondes et ensuite reset le monde
     public IEnumerator Time(float time) {
         isTimerRunning = true;
-        timeLeft = time;
+        wck.world.timeLeft = time;
 
-        while (timeLeft >= 0) {
+        while (wck.world.timeLeft >= 0) {
             yield return new WaitForSeconds(1);
-            PrintTime(timeLeft);
-            timeLeft--;
+            PrintTime(wck.world.timeLeft);
+            wck.world.timeLeft--;
         }
         ResetWorld();
     }

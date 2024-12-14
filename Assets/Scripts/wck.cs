@@ -1,6 +1,11 @@
 using UnityEngine;
 using UnityEngine.Android;
 
+public struct world {
+    public float resetTime; // Temps d'une boucle
+    public float timeLeft; // Temps restant avant Reset de l'univers
+}
+
 public struct player {
     // Général
     public int sharpSpeed; // Rotation du modèle en direction opposée
@@ -44,11 +49,15 @@ public struct bridge {
 
 public class wck : MonoBehaviour {
 
+    public static world world;
     public static player player;
     public static torch torch;
     public static bridge bridge;
 
     public static void Init() {
+
+        // World
+        world.resetTime = 30; // En secondes
 
         // Player
         player.sharpSpeed = 6000;
