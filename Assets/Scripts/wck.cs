@@ -16,7 +16,8 @@ public struct player {
     public float momentumDecay; // Vitesse de déccélération
 
     public float wax; // Taux de cire acculmulé par le joueur
-    public float waxDecay; // Vitesse de perte de la cire
+    public float waxSpeed; // Vitesse de perte de la cire
+    public float waxDecay; // Taux de perte de la cire
     public float waxMin; // Taux de cire minimum
     public float waxMax; // Taux de cire maximum
 
@@ -65,6 +66,7 @@ public class wck : MonoBehaviour {
         player.waxMax = 30;
         player.waxMin = 5;
         player.wax = 10;
+        player.wax = 1;
         player.waxDecay = 0.1f;
 
         player.currentTorch = 0;

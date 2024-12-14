@@ -22,10 +22,10 @@ public class Wax : MonoBehaviour {
     }
 
     private IEnumerator LoseWax() {
-        Debug.Log("Wax left: " + wck.player.wax);
-        while (wck.player.wax >= 1) {
-            yield return new WaitForSeconds(0.05f);
+        while (wck.player.wax >= wck.player.waxMin) {
+            yield return new WaitForSeconds(wck.player.waxSpeed);
             wck.player.wax -= wck.player.waxDecay;
+            Debug.Log("Wax left: " + wck.player.wax); // DEBUG
         }
     }
 }
