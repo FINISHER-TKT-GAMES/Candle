@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Android;
 
 public struct player {
     // Général
@@ -12,8 +13,10 @@ public struct player {
 
     public float speedBoost; // Accélération ajoutée lors d'un saut
     public float momentum; // Accélération du joueur
+    public float momentumDecay; // Vitesse de déccélération
 
-    public float waxWeight; // Taux de cire acculmulé par le joeur
+    public float wax; // Taux de cire acculmulé par le joueur
+    public float waxDecay; // Vitesse de perte de la cire
     public float waxMin; // Taux de cire minimum
     public float waxMax; // Taux de cire maximum
 
@@ -32,11 +35,17 @@ public struct torch {
     public float highIntensity; // Intensité lumineuse haute
 }
 
+public struct bridge {
+    public bool isBreakable; // Définit si le pont a été détruit
+    public float weightLimit; // Limite de poids supportable par le pont
+}
+
 
 public class wck : MonoBehaviour {
 
     public static player player;
     public static torch torch;
+    public static bridge bridge;
 
     public static void Init() {
 
@@ -51,10 +60,12 @@ public class wck : MonoBehaviour {
 
         player.speedBoost = 8;
         player.momentum = 0;
+        player.momentumDecay = 1;
 
         player.waxMax = 30;
         player.waxMin = 5;
-        player.waxWeight = 10;
+        player.wax = 10;
+        player.waxDecay = 0.1f;
 
         player.currentTorch = 0;
         player.torchCount = 0;
@@ -64,6 +75,10 @@ public class wck : MonoBehaviour {
         torch.detectionRange = 5f;
         torch.lowIntensity = 0.20f;
         torch.highIntensity = 1.0f;
+
+        // Bridge
+        bridge.isBreakable = false;
+        bridge.weightLimit = player.waxMax-5;
     }
 
     void Start() {

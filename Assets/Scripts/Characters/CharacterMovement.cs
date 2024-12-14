@@ -76,7 +76,7 @@ public class CharacterMovement : MonoBehaviour {
     private IEnumerator Momentum() {
             while (wck.player.momentum >= 1) {
             yield return new WaitForSeconds(0.05f);
-            wck.player.momentum--;
+            wck.player.momentum -= wck.player.momentumDecay;
             }
     }
 
