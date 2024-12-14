@@ -1,25 +1,35 @@
 using UnityEngine;
 
 public struct player {
-    public int sharpSpeed;
-    public int smoothSpeed;
+    // Général
+    public int sharpSpeed; // Rotation du modèle en direction opposée
+    public int smoothSpeed; // Rotation du modèle normal
+    public float playerSpeed; // Vitesse de déplacements
 
-    public float playerSpeed;
-    public float speedBoost;
-    public float momentum;
+    public float jumpHeight; // Hauteur de saut
+    public float gravity; // Gravité subit par le joueur
+    public bool isGrounded; // Définit si le joueur est sur le sol
 
-    public float jumpHeight;
-    public float gravity;
+    public float speedBoost; // Accélération ajoutée lors d'un saut
+    public float momentum; // Accélération du joueur
 
-    public int currentTorch;
-    public int torchCount;
-    public int torchMax;
+    public float waxWeight; // Taux de cire acculmulé par le joeur
+    public float waxMin; // Taux de cire minimum
+    public float waxMax; // Taux de cire maximum
+
+    // Enigme de l'envie
+    public int currentTorch; // ID de la dernière torche activée
+    public int torchCount; // Nombre de torches activées
+    public int torchMax; // Nombre de torches à activer
+
+    // Enigme de la gourmandise
+    //
 }
 
 public struct torch {
-    public float detectionRange;
-    public float lowIntensity;
-    public float highIntensity;
+    public float detectionRange; // Rayon de détection du joueur autour d'une torche
+    public float lowIntensity; // Intensité lumineuse basse
+    public float highIntensity; // Intensité lumineuse haute
 }
 
 
@@ -33,13 +43,18 @@ public class wck : MonoBehaviour {
         // Player
         player.sharpSpeed = 6000;
         player.smoothSpeed = 400;
-
         player.playerSpeed = 10;
-        player.speedBoost = 8;
-        player.momentum = 0;
 
         player.jumpHeight = 1.4f;
         player.gravity = -9.81f;
+        player.isGrounded = false;
+
+        player.speedBoost = 8;
+        player.momentum = 0;
+
+        player.waxMax = 30;
+        player.waxMin = 5;
+        player.waxWeight = 10;
 
         player.currentTorch = 0;
         player.torchCount = 0;
