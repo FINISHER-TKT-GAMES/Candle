@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.008
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
@@ -8586,7 +8586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98798e2b245df4648a9e1de55738d58b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.8
+      value: -55.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98798e2b245df4648a9e1de55738d58b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8594,7 +8594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98798e2b245df4648a9e1de55738d58b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 73.7
+      value: 22.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98798e2b245df4648a9e1de55738d58b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9305,7 +9305,7 @@ Transform:
   m_GameObject: {fileID: 1102727925}
   serializedVersion: 2
   m_LocalRotation: {x: 0.11675236, y: 0.0045318524, z: -0.0005327534, w: 0.9931506}
-  m_LocalPosition: {x: -13.8, y: 2.253445, z: 69.910835}
+  m_LocalPosition: {x: -55.4, y: 2.253445, z: 18.310837}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10310,7 +10310,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -10399,7 +10399,7 @@ Transform:
   m_GameObject: {fileID: 1421815360}
   serializedVersion: 2
   m_LocalRotation: {x: 0.11675235, y: 0.0045318524, z: -0.0005327534, w: 0.9931506}
-  m_LocalPosition: {x: -13.8, y: 2.253445, z: 69.910835}
+  m_LocalPosition: {x: -55.4, y: 2.253445, z: 18.310837}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11642,6 +11642,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791836, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507636620937791839, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
+      propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791839, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
