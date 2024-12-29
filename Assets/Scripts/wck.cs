@@ -1,9 +1,12 @@
 using UnityEngine;
-using UnityEngine.Android;
 
 public struct world {
     public float resetTime; // Temps d'une boucle
     public float timeLeft; // Temps restant avant Reset de l'univers
+}
+
+public struct controls {
+    public KeyCode interact; // Touche pour intéragir avec les éléments du jeu
 }
 
 public struct player {
@@ -19,6 +22,8 @@ public struct player {
     public float speedBoost; // Accélération ajoutée lors d'un saut
     public float momentum; // Accélération du joueur
     public float momentumDecay; // Vitesse de déccélération
+
+    public float reach; // Distance max d'intéraction avec des éléments du jeu
 
     public float wax; // Taux de cire acculmulé par le joueur
     public float waxSpeed; // Vitesse de perte de la cire
@@ -50,6 +55,7 @@ public struct bridge {
 public class wck : MonoBehaviour {
 
     public static world world;
+    public static controls ctrl;
     public static player player;
     public static torch torch;
     public static bridge bridge;
@@ -58,6 +64,9 @@ public class wck : MonoBehaviour {
 
         // World
         world.resetTime = 30; // En secondes
+
+        // Controls
+        ctrl.interact = KeyCode.E;
 
         // Player
         player.sharpSpeed = 6000;
@@ -71,6 +80,8 @@ public class wck : MonoBehaviour {
         player.speedBoost = 8;
         player.momentum = 0;
         player.momentumDecay = 1;
+
+        player.reach = 10f;
 
         player.waxMax = 30;
         player.waxMin = 5;
