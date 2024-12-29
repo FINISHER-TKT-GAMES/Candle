@@ -1,37 +1,32 @@
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class Bridge : MonoBehaviour {
 
-    public Transform BridgePos;
-    public LayerMask playerLayer;
+     public float weightThreshold = 50f; // Poids maximum avant destruction
+    private bool isBroken = false; // Pour éviter plusieurs destructions
 
-    private bool isPlayerHere;
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (isBroken) return;
 
-    void Update() {
-        if (isPlayerHere) {
-            CheckWeight();
+        Rigidbody rb = collision.rigidbody;
+        if (rb != null && rb.mass > weightThreshold)
+        {
+            Debug.Log("Planche cassée !");
+            BreakPlank();
         }
     }
 
-    // Vérifie si le joueur est sur le pont
-    private void OnTriggerEnter(Collider other){
-        if (other.tag == "Player"){
-            isPlayerHere = true;
-        } else {
-            isPlayerHere = false;
+    private void BreakPlank()
+    {
+        isBroken = true;
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = false; // Permet à la planche de tomber
         }
-    }
-
-    // Vérifie si le poids du joueur dépasse la limite de poids du pont
-    private void CheckWeight() {
-        if (wck.player.wax >= wck.bridge.weightLimit) {
-            AllowBreaking();
-        }
-    }
-
-    // Détruit le pont
-    // A finir
-    private void AllowBreaking() {
-        wck.bridge.isBreakable = true;
+        // Ajoute un effet visuel ou sonore ici
+        Destroy(gameObject, 2f); // Supprime la planche après 2 secondes
     }
 }

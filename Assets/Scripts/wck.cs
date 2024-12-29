@@ -47,7 +47,7 @@ public struct torch {
 }
 
 public struct bridge {
-    public bool isBreakable; // Définit si le pont a été détruit
+    public bool isBroken; // Définit si le pont a été détruit
     public float weightLimit; // Limite de poids supportable par le pont
 }
 
@@ -85,8 +85,8 @@ public class wck : MonoBehaviour {
 
         player.waxMax = 30;
         player.waxMin = 5;
-        player.wax = 10;
-        player.wax = 1;
+        player.wax = 30;
+        player.waxSpeed = 3;
         player.waxDecay = 0.1f;
 
         player.currentTorch = 0;
@@ -99,7 +99,7 @@ public class wck : MonoBehaviour {
         torch.highIntensity = 1.0f;
 
         // Bridge
-        bridge.isBreakable = false;
+        bridge.isBroken = false;
         bridge.weightLimit = player.waxMax-5;
     }
 
