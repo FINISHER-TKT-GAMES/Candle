@@ -7,7 +7,10 @@ public struct world {
 
 public struct controls {
     public KeyCode interact; // Touche pour intéragir avec les éléments du jeu
+    public KeyCode burnFaster; // Touche utilisée pour que la bougie se consume plus vite
 }
+
+public enum SpeedState {normal, boost}
 
 public struct player {
     // Général
@@ -26,10 +29,13 @@ public struct player {
     public float reach; // Distance max d'intéraction avec des éléments du jeu
 
     public float wax; // Taux de cire acculmulé par le joueur
-    public float waxSpeed; // Vitesse de perte de la cire
-    public float waxDecay; // Taux de perte de la cire
     public float waxMin; // Taux de cire minimum
     public float waxMax; // Taux de cire maximum
+
+    public float waxDefaultSpeed; // Vitesse de perte de la cire par défaut
+    public float waxSpeed; // Vitesse de perte de la cire
+    public SpeedState waxSpeedState;
+    public float waxDecay; // Taux de perte de la cire
 
     // Enigme de l'envie
     public int currentTorch; // ID de la dernière torche activée
@@ -66,6 +72,7 @@ public class wck : MonoBehaviour {
 
         // Controls
         ctrl.interact = KeyCode.E;
+        ctrl.interact = KeyCode.R;
 
         // Player
         player.sharpSpeed = 6000;
@@ -85,7 +92,9 @@ public class wck : MonoBehaviour {
         player.waxMax = 30;
         player.waxMin = 5;
         player.wax = 30;
-        player.waxSpeed = 3;
+        player.waxDefaultSpeed = 3;
+        player.waxSpeed = player.waxDefaultSpeed;
+        player.waxSpeedState = SpeedState.normal;
         player.waxDecay = 0.1f;
 
         player.currentTorch = 0;
