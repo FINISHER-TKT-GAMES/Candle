@@ -1,5 +1,9 @@
 using UnityEngine;
 
+public struct engine {
+    public LayerMask playerLayer; // Layer utilisée pour la détection du joueur
+}
+
 public struct world {
     public float resetTime; // Temps d'une boucle
     public float timeLeft; // Temps restant avant Reset de l'univers
@@ -14,6 +18,7 @@ public enum SpeedState {normal, boost}
 public enum Obstacle {door, wall};
 
 public struct player {
+
     // Général
     public int sharpSpeed; // Rotation du modèle en direction opposée
     public int smoothSpeed; // Rotation du modèle normal
@@ -64,6 +69,7 @@ public struct restpoint {
 
 public class wck : MonoBehaviour {
 
+    public static engine engine;
     public static world world;
     public static controls ctrl;
     public static player player;
@@ -73,6 +79,9 @@ public class wck : MonoBehaviour {
 
     public static void Init() {
 
+        // Engine
+        engine.playerLayer = LayerMask.NameToLayer("Player");
+
         // World
         world.resetTime = 30; // En secondes
 
@@ -80,7 +89,6 @@ public class wck : MonoBehaviour {
         ctrl.interact = KeyCode.E;
         ctrl.interact = KeyCode.R;
 
-        // Player
         player.sharpSpeed = 6000;
         player.smoothSpeed = 400;
         player.playerSpeed = 10;

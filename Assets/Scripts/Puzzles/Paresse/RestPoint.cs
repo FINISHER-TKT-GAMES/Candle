@@ -5,7 +5,6 @@ using System.Runtime.InteropServices;
 public class RestPoint : MonoBehaviour {
 
     [SerializeField] public float restTime;    
-    [SerializeField] public LayerMask playerLayer;
 
     private bool playerNear = false;
     private bool timerRunning = false;
@@ -29,7 +28,7 @@ public class RestPoint : MonoBehaviour {
     }
 
     private void Scan() {
-        playerNear = Physics.CheckSphere(transform.position, wck.restpoint.detectionRange, playerLayer);  
+        playerNear = Physics.CheckSphere(transform.position, wck.restpoint.detectionRange, wck.engine.playerLayer);  
     }
 
     private IEnumerator RestTimer() {
