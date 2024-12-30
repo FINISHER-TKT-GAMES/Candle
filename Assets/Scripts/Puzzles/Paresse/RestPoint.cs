@@ -5,13 +5,14 @@ using System.Runtime.InteropServices;
 public class RestPoint : MonoBehaviour {
 
     [SerializeField] public float restTime;    
+    [SerializeField] public GameObject linkedObstacle;
 
     private bool playerNear = false;
     private bool timerRunning = false;
     private bool obstacleUnlocked = false;
 
     void Start() {
-        Debug.Log("Obstacle unlocked: " + obstacleUnlocked);
+        Debug.Log("Obstacle unlocked: " + obstacleUnlocked); // DEBUG
     }
 
     void Update() {
@@ -20,7 +21,7 @@ public class RestPoint : MonoBehaviour {
 
         if (playerNear && !timerRunning) {
             StartCoroutine(RestTimer());
-            Debug.Log("Timer started");
+            Debug.Log("Timer started"); // DEBUG
         } else if (!playerNear && timerRunning) {
             StopAllCoroutines();
             timerRunning = false;
@@ -38,8 +39,13 @@ public class RestPoint : MonoBehaviour {
             wck.player.timeSpent++;
             Debug.Log("Time spent: " + wck.player.timeSpent); // DEBUG
         }
+        timerRunning = false;
         obstacleUnlocked = true;
-        Debug.Log("Unlocked obstacle");
+        Debug.Log("Unlocked obstacle"); // DEBUG
+        UnlockObstacle();
     }
 
+    private void UnlockObstacle() {
+        linkedObstacle.SetActive(false);
+    }
 }
