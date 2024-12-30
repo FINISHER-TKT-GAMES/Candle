@@ -851,6 +851,10 @@ PrefabInstance:
       propertyPath: linkedObstacle
       value: 
       objectReference: {fileID: 743420558}
+    - target: {fileID: 8025878462648198226, guid: d6a2027c8fd207e408ed6c4262746929, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1001,7 +1005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8223397308611831870, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.8299491
+      value: -12.12
       objectReference: {fileID: 0}
     - target: {fileID: 8223397308611831870, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
       propertyPath: m_LocalRotation.w

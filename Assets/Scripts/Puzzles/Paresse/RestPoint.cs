@@ -4,35 +4,34 @@ using System.Runtime.InteropServices;
 
 public class RestPoint : MonoBehaviour {
 
+    // Paramètres du point de repos
     [SerializeField] public float restTime;    
     [SerializeField] public GameObject linkedObstacle;
+    [SerializeField] public LayerMask playerLayer; // FIX: PLAYER LAYER DANS ENGINE MARCHE TOUJOURS PAS
 
     private bool playerNear = false;
     private bool timerRunning = false;
-    private bool obstacleUnlocked = false;
 
-    void Start() {
-        Debug.Log("Obstacle unlocked: " + obstacleUnlocked); // DEBUG
-    }
 
     void Update() {
-
-        Scan();
-
+        // Lance le timer si le joueur est proche, et le coupe si il s'éloigne
         if (playerNear && !timerRunning) {
-            StartCoroutine(RestTimer());
-            Debug.Log("Timer started"); // DEBUG
+            StartCoroutine(StartTimer());
         } else if (!playerNear && timerRunning) {
-            StopAllCoroutines();
-            timerRunning = false;
+            StopTimer();
         }
+        Scan();
     }
 
+
+    // OPTI: FONCTION SCAN AVEC ARGS DANS UNE LIBRAIRIE REUTILISABLE
+    // Vérifie si le joueur est proche
     private void Scan() {
-        playerNear = Physics.CheckSphere(transform.position, wck.restpoint.detectionRange, wck.engine.playerLayer);  
+        playerNear = Physics.CheckSphere(transform.position, wck.restpoint.detectionRange, playerLayer);  
     }
 
-    private IEnumerator RestTimer() {
+    // Compte le temps que le joueur passe à côté du point de repos
+    private IEnumerator StartTimer() {
         timerRunning = true;
         while (wck.player.timeSpent < restTime) {
             yield return new WaitForSeconds(1);
@@ -40,11 +39,17 @@ public class RestPoint : MonoBehaviour {
             Debug.Log("Time spent: " + wck.player.timeSpent); // DEBUG
         }
         timerRunning = false;
-        obstacleUnlocked = true;
-        Debug.Log("Unlocked obstacle"); // DEBUG
         UnlockObstacle();
     }
 
+    private void StopTimer() {
+            StopAllCoroutines();
+            Debug.Log("Timer stopped");
+            timerRunning = false;
+            wck.player.timeSpent = 0;
+    }
+
+    // Débloque l'obstacle lié au point de repos
     private void UnlockObstacle() {
         linkedObstacle.SetActive(false);
     }
