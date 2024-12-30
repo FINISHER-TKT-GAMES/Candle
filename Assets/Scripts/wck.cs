@@ -11,6 +11,7 @@ public struct controls {
 }
 
 public enum SpeedState {normal, boost}
+public enum Obstacle {door, wall};
 
 public struct player {
     // Général
@@ -43,7 +44,7 @@ public struct player {
     public int torchMax; // Nombre de torches à activer
 
     // Enigme de la gourmandise
-    //
+    public float timeSpent;
 }
 
 public struct torch {
@@ -56,6 +57,10 @@ public struct bridge {
     public float weightLimit; // Limite de poids supportable par le pont
 }
 
+public struct restpoint {
+    public float detectionRange;
+}
+
 
 public class wck : MonoBehaviour {
 
@@ -64,6 +69,7 @@ public class wck : MonoBehaviour {
     public static player player;
     public static torch torch;
     public static bridge bridge;
+    public static restpoint restpoint;
 
     public static void Init() {
 
@@ -101,6 +107,8 @@ public class wck : MonoBehaviour {
         player.torchCount = 0;
         player.torchMax = 3;
 
+        player.timeSpent = 0;
+
         // Torches
         torch.detectionRange = 5f;
         torch.lowIntensity = 0.20f;
@@ -108,6 +116,9 @@ public class wck : MonoBehaviour {
 
         // Bridge
         bridge.weightLimit = player.waxMax-5;
+
+        // Rest points
+        restpoint.detectionRange = 8f;
     }
 
     void Start() {
