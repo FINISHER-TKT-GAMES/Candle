@@ -1,13 +1,14 @@
 using UnityEngine;
 using System.Collections;
-using System.Runtime.InteropServices;
 
 public class RestPoint : MonoBehaviour {
+
+    public Engine engine;
 
     // Paramètres du point de repos
     [SerializeField] public float restTime;    
     [SerializeField] public GameObject linkedObstacle;
-    [SerializeField] public LayerMask playerLayer; // FIX: PLAYER LAYER DANS ENGINE MARCHE TOUJOURS PAS
+    [SerializeField] public LayerMask playerLayer;
 
     private bool playerNear = false;
     private bool timerRunning = false;
@@ -20,14 +21,7 @@ public class RestPoint : MonoBehaviour {
         } else if (!playerNear && timerRunning) {
             StopTimer();
         }
-        Scan();
-    }
-
-
-    // OPTI: FONCTION SCAN AVEC ARGS DANS UNE LIBRAIRIE REUTILISABLE
-    // Vérifie si le joueur est proche
-    private void Scan() {
-        playerNear = Physics.CheckSphere(transform.position, wck.restpoint.detectionRange, playerLayer);  
+        playerNear = engine.Scan(wck.restpoint.detectionRange, playerLayer);
     }
 
     // Compte le temps que le joueur passe à côté du point de repos

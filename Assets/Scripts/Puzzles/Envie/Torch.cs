@@ -3,6 +3,7 @@ using UnityEngine;
 public class Torch : MonoBehaviour {
 
     // Import
+    public Engine engine;
     public End end;
 
     // ID
@@ -28,7 +29,15 @@ public class Torch : MonoBehaviour {
     }
 
     void Update() {
-        Scan();
+        if (currentState != lightState.on) {
+            playerNear = engine.Scan(wck.torch.detectionRange, playerLayer);
+            
+            if (playerNear) {
+            wck.player.currentTorch = ID;
+            wck.player.torchCount++;
+            CheckTorchCount();
+            }  
+        }
         HandleLighting();
     }
 
@@ -43,19 +52,6 @@ public class Torch : MonoBehaviour {
     private void LightUp() {
         torchLight.intensity = wck.torch.highIntensity;
         currentState = lightState.on;
-    }
-
-    // Scan si le joueur est autour de la torche
-    private void Scan() {
-        if (currentState != lightState.on) {
-            playerNear = Physics.CheckSphere(torchPos.position, wck.torch.detectionRange, playerLayer);  
-            
-            if (playerNear) {
-            wck.player.currentTorch = ID;
-            wck.player.torchCount++;
-            CheckTorchCount();
-            }  
-        }
     }
 
     // Contrôle la lumière des torches

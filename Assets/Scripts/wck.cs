@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public struct engine {
+public struct Object {
     public LayerMask playerLayer; // Layer utilisée pour la détection du joueur
 }
 
-public struct world {
+public struct World {
     public float resetTime; // Temps d'une boucle
     public float timeLeft; // Temps restant avant Reset de l'univers
 }
 
-public struct controls {
+public struct Controls {
     public KeyCode interact; // Touche pour intéragir avec les éléments du jeu
     public KeyCode burnFaster; // Touche utilisée pour que la bougie se consume plus vite
 }
@@ -17,7 +17,7 @@ public struct controls {
 public enum SpeedState {normal, boost}
 public enum Obstacle {door, wall};
 
-public struct player {
+public struct Player {
 
     // Général
     public int sharpSpeed; // Rotation du modèle en direction opposée
@@ -52,30 +52,30 @@ public struct player {
     public float timeSpent;
 }
 
-public struct torch {
+public struct TorchObject {
     public float detectionRange; // Rayon de détection du joueur autour d'une torche
     public float lowIntensity; // Intensité lumineuse basse
     public float highIntensity; // Intensité lumineuse haute
 }
 
-public struct bridge {
+public struct BridgeObject {
     public float weightLimit; // Limite de poids supportable par le pont
 }
 
-public struct restpoint {
+public struct RestpointObject {
     public float detectionRange;
 }
 
 
 public class wck : MonoBehaviour {
 
-    public static engine engine;
-    public static world world;
-    public static controls ctrl;
-    public static player player;
-    public static torch torch;
-    public static bridge bridge;
-    public static restpoint restpoint;
+    public static Object engine;
+    public static World world;
+    public static Controls ctrl;
+    public static Player player;
+    public static TorchObject torch;
+    public static BridgeObject bridge;
+    public static RestpointObject restpoint;
 
     public static void Init() {
 

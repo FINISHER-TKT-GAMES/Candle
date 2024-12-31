@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 // This class is used to manage the movement of the character
@@ -100,7 +99,7 @@ public class CharacterMovement : MonoBehaviour {
 
      // Lock le curseur sur la fenêtre du jeu
     private void SetCursor() {
-        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
-        UnityEngine.Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
