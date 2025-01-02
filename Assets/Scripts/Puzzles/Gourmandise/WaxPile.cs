@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Interact : MonoBehaviour {
+public class WaxPile : MonoBehaviour {
 
     public Engine engine;
     public Wax wax;
