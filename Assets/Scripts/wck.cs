@@ -94,7 +94,7 @@ public class wck : MonoBehaviour {
 
         // Controls
         ctrl.interact = KeyCode.E;
-        ctrl.interact = KeyCode.R;
+        ctrl.burnFaster = KeyCode.R;
 
         player.sharpSpeed = 6000;
         player.smoothSpeed = 400;

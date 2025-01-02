@@ -2,32 +2,35 @@ using UnityEngine;
 
 public class WaxPile : MonoBehaviour {
 
+    [Header("Scripts")]
     public Engine engine;
     public Wax wax;
 
+    [Header("Paramètres")]
     public LayerMask playerLayer;
     public Transform pilePos;
 
+    [Header("Debug")]
     [SerializeField] private float stock;
     [SerializeField] private bool playerNear;
 
+
     void Update() {
+        // Détecte si le joueur est proche, et si il appuie sur sa touche d'intéraction (E)
         playerNear = engine.ScanAround(pilePos.position, wck.waxpile.detectionRange, playerLayer);
         if (playerNear) {
-            // Display text "E to pickup wax"
-            if (Input.GetKeyDown(KeyCode.E)) {
-                Debug.Log("Pressed E");
+            // FT: DISPLAY TEXT "E to pickup wax"
+            if (Input.GetKeyDown(wck.ctrl.interact)) {
                 Pickup();  
             }
         }
     }
 
+    // Retire la cire de la pile et l'ajoute au joueur
     private void Pickup() {
         if (stock >= wck.waxpile.addAmount) {
             stock -= wck.waxpile.addAmount;
-            Debug.Log("Remove two of wax from waxpile");
             wax.PickupWax(wck.waxpile.addAmount);
-            Debug.Log("Added two of wax to player");
         } else if (stock < wck.waxpile.addAmount) {
             wax.PickupWax(stock);
         } else {

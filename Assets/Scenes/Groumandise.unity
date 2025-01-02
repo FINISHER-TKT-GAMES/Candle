@@ -809,7 +809,7 @@ PrefabInstance:
       objectReference: {fileID: 8770348542327238603}
     - target: {fileID: 5505947939839480521, guid: ad35459b71bf26f45922a65f481dabdc, type: 3}
       propertyPath: stock
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5505947939839480521, guid: ad35459b71bf26f45922a65f481dabdc, type: 3}
       propertyPath: engine
