@@ -14,7 +14,7 @@ public class Wax : MonoBehaviour {
     // Permet de récupérer de la cire
     public void PickupWax(float amount) {
         if (wck.player.wax < wck.player.waxMax) {
-            if (wck.player.wax + amount > wck.player.waxMax) {
+            if (wck.player.wax + amount < wck.player.waxMax) {
                 wck.player.wax += amount;
             }
             else {
