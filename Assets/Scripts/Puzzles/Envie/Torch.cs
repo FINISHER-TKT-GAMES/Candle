@@ -2,21 +2,24 @@ using UnityEngine;
 
 public class Torch : MonoBehaviour {
 
-    // Import
+    [Header("Scripts")]
     public Engine engine;
     public End end;
 
-    // ID
-    [SerializeField] private int ID;
-
-    // Détection
-    public Transform torchPos;
+    [Header("Paramètres")]
     public LayerMask playerLayer;
-    private bool playerNear = false;
+    
 
-    // Lumière
+    [Header("Torche")]
+    [SerializeField] private int ID;
+    public Transform torchPos;
     public Light torchLight;
-    private lightState currentState = lightState.off;
+    
+
+    [Header("Debug")]
+    [SerializeField] private bool playerNear = false;
+    [SerializeField] private lightState currentState = lightState.off;
+    
     private enum lightState {off, ignited, on}
 
 
@@ -30,7 +33,7 @@ public class Torch : MonoBehaviour {
 
     void Update() {
         if (currentState != lightState.on) {
-            playerNear = engine.Scan(wck.torch.detectionRange, playerLayer);
+            playerNear = engine.ScanAround(torchPos.position, wck.torch.detectionRange, playerLayer);
             
             if (playerNear) {
             wck.player.currentTorch = ID;
@@ -56,11 +59,11 @@ public class Torch : MonoBehaviour {
 
     // Contrôle la lumière des torches
     private void HandleLighting() {
-        if (playerNear && ID == wck.player.currentTorch && currentState == lightState.ignited) {
+        if (playerNear && ID == wck.player.currentTorch) {
             LightUp();
         }
 
-        if (ID == wck.player.currentTorch + 1) {
+        if (ID == wck.player.currentTorch + 1 && currentState == lightState.off) {
             Ignite();
         }
     }

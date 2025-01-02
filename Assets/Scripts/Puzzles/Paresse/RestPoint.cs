@@ -6,10 +6,12 @@ public class RestPoint : MonoBehaviour {
     public Engine engine;
 
     // Paramètres du point de repos
+    [Header("Paramètres")]
     [SerializeField] public float restTime;    
     [SerializeField] public GameObject linkedObstacle;
     [SerializeField] public LayerMask playerLayer;
 
+    [Header("Debug")]
     [SerializeField] private bool playerNear = false;
     [SerializeField] private bool timerRunning = false;
 

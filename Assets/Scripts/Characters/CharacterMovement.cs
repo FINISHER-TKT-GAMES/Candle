@@ -4,10 +4,12 @@ using UnityEngine;
 // This class is used to manage the movement of the character
 public class CharacterMovement : MonoBehaviour {
 
+    [Header("Paramètres")]
     public Transform cam;
     public CharacterController controller;
     public Transform character;
 
+    [Header("Détection du sol")]
     public Transform groundCheck;
     public LayerMask groundLayer;
 
