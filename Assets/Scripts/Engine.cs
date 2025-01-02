@@ -3,6 +3,7 @@ using UnityEngine;
 // Fonctions réutilisables dans d'autres scripts
 public class Engine : MonoBehaviour {
 
+    // BUG: SI LE JOUEUR EST TROP PRET DE L'OBJET, LA FONCTION RENVOIE FALSE (pourqoi???)
     // Permet de scanner autour de l'objet, avec un rayon et sur une layer spécifique
     // Renvoie true si un objet de la layer entre dans le rayon
     public bool Scan(float detectionRange, LayerMask layer) {

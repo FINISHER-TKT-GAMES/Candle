@@ -126,7 +126,7 @@ public class wck : MonoBehaviour {
         bridge.weightLimit = player.waxMax-5;
 
         // Rest points
-        restpoint.detectionRange = 3f;
+        restpoint.detectionRange = 3.5f;
     }
 
     void Start() {

@@ -319,6 +319,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1946838453}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &320410579 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2939800074238720671, guid: 9129302645a4a0c61a375f4187929368, type: 3}
+  m_PrefabInstance: {fileID: 1773825334759060815}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &320410583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320410579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f99da435d16df046b47fe8b434a3b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &487928122
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,6 +865,10 @@ PrefabInstance:
       value: Rest point
       objectReference: {fileID: 0}
     - target: {fileID: 8025878462648198226, guid: d6a2027c8fd207e408ed6c4262746929, type: 3}
+      propertyPath: engine
+      value: 
+      objectReference: {fileID: 320410583}
+    - target: {fileID: 8025878462648198226, guid: d6a2027c8fd207e408ed6c4262746929, type: 3}
       propertyPath: linkedObstacle
       value: 
       objectReference: {fileID: 743420558}
@@ -924,7 +945,10 @@ PrefabInstance:
     - {fileID: 5658614871950767578, guid: 9129302645a4a0c61a375f4187929368, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2939800074238720671, guid: 9129302645a4a0c61a375f4187929368, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 320410583}
   m_SourcePrefab: {fileID: 100100000, guid: 9129302645a4a0c61a375f4187929368, type: 3}
 --- !u!1001 &3089675135003414347
 PrefabInstance:

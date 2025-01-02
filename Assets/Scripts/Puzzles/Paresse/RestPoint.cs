@@ -10,18 +10,19 @@ public class RestPoint : MonoBehaviour {
     [SerializeField] public GameObject linkedObstacle;
     [SerializeField] public LayerMask playerLayer;
 
-    private bool playerNear = false;
-    private bool timerRunning = false;
+    [SerializeField] private bool playerNear = false;
+    [SerializeField] private bool timerRunning = false;
 
 
     void Update() {
+        playerNear = engine.Scan(wck.restpoint.detectionRange, playerLayer);
         // Lance le timer si le joueur est proche, et le coupe si il s'éloigne
         if (playerNear && !timerRunning) {
             StartCoroutine(StartTimer());
         } else if (!playerNear && timerRunning) {
+            Debug.Log("Player went too far away");
             StopTimer();
         }
-        playerNear = engine.Scan(wck.restpoint.detectionRange, playerLayer);
     }
 
     // Compte le temps que le joueur passe à côté du point de repos
@@ -32,8 +33,10 @@ public class RestPoint : MonoBehaviour {
             wck.player.timeSpent++;
             Debug.Log("Time spent: " + wck.player.timeSpent); // DEBUG
         }
+        Debug.Log("Timer over");
         timerRunning = false;
         UnlockObstacle();
+        StopTimer();
     }
 
     private void StopTimer() {
