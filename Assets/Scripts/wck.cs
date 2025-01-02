@@ -66,6 +66,11 @@ public struct RestpointObject {
     public float detectionRange;
 }
 
+public struct WaxObject {
+    public float detectionRange;
+    public float addAmount;
+}
+
 
 public class wck : MonoBehaviour {
 
@@ -74,8 +79,10 @@ public class wck : MonoBehaviour {
     public static Controls ctrl;
     public static Player player;
     public static TorchObject torch;
+    public static WaxObject waxpile;
     public static BridgeObject bridge;
     public static RestpointObject restpoint;
+    
 
     public static void Init() {
 
@@ -121,6 +128,10 @@ public class wck : MonoBehaviour {
         torch.detectionRange = 5f;
         torch.lowIntensity = 0.20f;
         torch.highIntensity = 1.0f;
+
+        // Wax
+        waxpile.detectionRange = 2.5f;
+        waxpile.addAmount = 2;
 
         // Bridge
         bridge.weightLimit = player.waxMax-5;
