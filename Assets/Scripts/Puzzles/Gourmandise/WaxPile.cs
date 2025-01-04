@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WaxPile : MonoBehaviour {
@@ -35,6 +36,9 @@ public class WaxPile : MonoBehaviour {
             wax.PickupWax(stock);
         } else {
             Debug.Log("No more wax inside this pile");
+        }
+        if (stock <= 0) {
+        Destroy(gameObject);
         }
     }
 }

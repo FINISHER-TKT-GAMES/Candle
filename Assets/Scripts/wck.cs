@@ -50,6 +50,10 @@ public struct Player {
 
     // Enigme de la gourmandise
     public float timeSpent;
+
+    // Enigme de la colère
+    public int statueCount;
+    public int statueMax;
 }
 
 public struct TorchObject {
@@ -71,6 +75,11 @@ public struct WaxObject {
     public float addAmount;
 }
 
+public struct StatueObject {
+    public float lightIncrease;
+    public bool requestIncrease;
+}
+
 
 public class wck : MonoBehaviour {
 
@@ -82,6 +91,7 @@ public class wck : MonoBehaviour {
     public static WaxObject waxpile;
     public static BridgeObject bridge;
     public static RestpointObject restpoint;
+    public static StatueObject statue;
     
 
     public static void Init() {
@@ -124,6 +134,9 @@ public class wck : MonoBehaviour {
 
         player.timeSpent = 0;
 
+        player.statueCount = 0;
+        player.statueMax = 3;
+
         // Torches
         torch.detectionRange = 5f;
         torch.lowIntensity = 0.20f;
@@ -138,6 +151,10 @@ public class wck : MonoBehaviour {
 
         // Rest points
         restpoint.detectionRange = 3.5f;
+
+        // Statues
+        statue.lightIncrease = 10f;
+        statue.requestIncrease = false;
     }
 
     void Start() {

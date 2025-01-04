@@ -3,11 +3,14 @@ using System.Collections;
 
 public class Wax : MonoBehaviour {
 
+    [SerializeField] private float waxLeft; // DEBUG
+
     void Start() {
         StartCoroutine(LoseWax());
     }
 
     void Update() {
+        waxLeft = wck.player.wax;
         // BurnFaster(10);
     }
 
@@ -28,7 +31,6 @@ public class Wax : MonoBehaviour {
         while (wck.player.wax >= wck.player.waxMin) {
             yield return new WaitForSeconds(wck.player.waxSpeed);
             wck.player.wax -= wck.player.waxDecay;
-            Debug.Log("Wax left: " + wck.player.wax); // DEBUG
         }
     }
 
