@@ -3,26 +3,19 @@ using UnityEngine;
 public class Statue : MonoBehaviour {
 
     [SerializeField] private Room room;
-
-    public new Light light;
+    [SerializeField] new Light light;
 
     // OPTI: FONCTION QUI APPELLE INCREASE LIGHT AU LIEU DE VOID UPDATE
     void Update() {
-        if (wck.statue.requestIncrease) {
-            IncreaseLight();
-            wck.statue.requestIncrease = false;
-        }
+        light.intensity = wck.player.statueCount+1;
     }
 
+    // Ajoute 1 au compte de statues et met à jour la pièce
     private void OnTriggerEnter(Collider collider) {
-        if (collider.tag == "Player") {
+        if (collider.CompareTag("Player")) {
             wck.player.statueCount++;
             room.UpdateRoom();
             Destroy(gameObject);
         }
-    }
-
-    public void IncreaseLight() {
-        light.intensity += wck.statue.lightIncrease;
     }
 }

@@ -77,7 +77,6 @@ public struct WaxObject {
 
 public struct StatueObject {
     public float lightIncrease;
-    public bool requestIncrease;
 }
 
 
@@ -153,8 +152,7 @@ public class wck : MonoBehaviour {
         restpoint.detectionRange = 3.5f;
 
         // Statues
-        statue.lightIncrease = 10f;
-        statue.requestIncrease = false;
+        statue.lightIncrease = 1;
     }
 
     void Start() {
