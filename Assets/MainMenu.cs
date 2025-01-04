@@ -2,9 +2,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 public class MainMenu : MonoBehaviour {
+
+    public Animator cameraAnimator;
+
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        cameraAnimator.SetTrigger("NewGame");
+
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
@@ -14,4 +19,5 @@ public class MainMenu : MonoBehaviour {
 
 
     }
+
 }
