@@ -121,7 +121,7 @@ public class wck : MonoBehaviour {
 
         player.waxMax = 30;
         player.waxMin = 5;
-        player.wax = 10;
+        player.wax = 20;
         player.waxDefaultSpeed = 3;
         player.waxSpeed = player.waxDefaultSpeed;
         player.waxSpeedState = SpeedState.normal;
@@ -137,9 +137,9 @@ public class wck : MonoBehaviour {
         player.statueMax = 3;
 
         // Torches
-        torch.detectionRange = 5f;
-        torch.lowIntensity = 0.20f;
-        torch.highIntensity = 1.0f;
+        torch.detectionRange = 2f;
+        torch.lowIntensity = 0.5f;
+        torch.highIntensity = 5.0f;
 
         // Wax
         waxpile.detectionRange = 4.5f;
@@ -149,7 +149,7 @@ public class wck : MonoBehaviour {
         bridge.weightLimit = player.waxMax-5;
 
         // Rest points
-        restpoint.detectionRange = 3.5f;
+        restpoint.detectionRange = 1.5f;
 
         // Statues
         statue.lightIncrease = 1;
