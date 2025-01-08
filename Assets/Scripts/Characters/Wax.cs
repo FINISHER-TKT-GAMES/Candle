@@ -11,7 +11,7 @@ public class Wax : MonoBehaviour {
 
     void Update() {
         waxLeft = wck.player.wax;
-        // BurnFaster(10);
+         BurnFaster(0.1f);
     }
 
     // Permet de récupérer de la cire
@@ -37,11 +37,11 @@ public class Wax : MonoBehaviour {
     // WIP
     // Permet de brûler notre cire plus vite
     private void BurnFaster(float multiplier) {
-        if (Input.GetKeyDown(wck.ctrl.burnFaster)) {
-            wck.player.waxSpeed *= multiplier;
+        if (Input.GetKey(wck.ctrl.burnFaster)) {
+            wck.player.waxSpeed = wck.player.waxDefaultSpeed * multiplier;
             wck.player.waxSpeedState = SpeedState.boost;
-            Debug.Log("Wax speed: " + wck.player.waxSpeed); // DEBUG
-            Debug.Log("Speed state: " + wck.player.waxSpeedState); // DEBUG
+            // Debug.Log("Wax speed: " + wck.player.waxSpeed);  DEBUG
+            //Debug.Log("Speed state: " + wck.player.waxSpeedState);  DEBUG
         } else {
             wck.player.waxSpeed = wck.player.waxDefaultSpeed;
             wck.player.waxSpeedState = SpeedState.normal;
