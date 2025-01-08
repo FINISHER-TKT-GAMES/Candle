@@ -14,6 +14,7 @@ public class CharacterMovement : MonoBehaviour {
     public LayerMask groundLayer;
 
     [Header("Vitesse déplacements")]
+    public float DefaultPlayerSpeed; // Vitesse de déplacements par défaut
     public float playerSpeed; // Vitesse de déplacements
     public int sharpSpeed; // Rotation du modèle en direction opposée
     public int smoothSpeed; // Rotation du modèle normal
@@ -38,6 +39,7 @@ public class CharacterMovement : MonoBehaviour {
 
     void Update() {
         Movement();
+        SlowMovement(0.5f);
         Rotate();
         Gravity();
         Jump();
@@ -109,6 +111,13 @@ public class CharacterMovement : MonoBehaviour {
             else {
                 Flip(smoothSpeed);
             }
+        }
+    }
+    private void SlowMovement(float multiplier) {
+        if (Input.GetKey(wck.ctrl.slow)) {
+            playerSpeed = DefaultPlayerSpeed * multiplier;
+        } else {
+            playerSpeed = DefaultPlayerSpeed;
         }
     }
 

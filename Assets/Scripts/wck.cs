@@ -12,6 +12,7 @@ public struct World {
 public struct Controls {
     public KeyCode interact; // Touche pour intéragir avec les éléments du jeu
     public KeyCode burnFaster; // Touche utilisée pour que la bougie se consume plus vite
+    public KeyCode slow; // Touche pour ralentir les mouvements du joueur
 }
 
 public enum SpeedState {normal, boost}
@@ -92,6 +93,7 @@ public class wck : MonoBehaviour {
         // Controls
         ctrl.interact = KeyCode.E;
         ctrl.burnFaster = KeyCode.R;
+        ctrl.slow = KeyCode.LeftShift;
 
         player.reach = 10f;
 
