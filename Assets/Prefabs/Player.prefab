@@ -262,6 +262,15 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  playerSpeed: 10
+  sharpSpeed: 6000
+  smoothSpeed: 400
+  jumpHeight: 1.4
+  gravity: -9.81
+  isGrounded: 0
+  speedBoost: 8
+  momentum: 0
+  momentumDecay: 1
 --- !u!114 &6090899733329350819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a475b7cfe9cdb40be87bddf5db995a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waxLeft: 0
 --- !u!136 &8749752253602032052
 CapsuleCollider:
   m_ObjectHideFlags: 0

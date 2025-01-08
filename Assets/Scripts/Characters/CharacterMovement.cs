@@ -58,7 +58,7 @@ public class CharacterMovement : MonoBehaviour {
         cameraRight.Normalize();
 
         move = cameraForward * z + cameraRight * x;
-        controller.Move((wck.player.playerSpeed + wck.player.momentum) * Time.deltaTime * move);
+        controller.Move((playerSpeed + momentum) * Time.deltaTime * move);
     }
 
     private void Gravity() {
@@ -68,7 +68,7 @@ public class CharacterMovement : MonoBehaviour {
             velocity.y = -2f;
         }
 
-        velocity.y += wck.player.gravity * Time.deltaTime;
+        velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
 
@@ -76,21 +76,21 @@ public class CharacterMovement : MonoBehaviour {
     private void Jump() {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
             AddMomentum();
-        velocity.y = Mathf.Sqrt(wck.player.jumpHeight * -2f * wck.player.gravity);
+        velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }
 
     // Ajoute de l'accélération au joueur
     private void AddMomentum() {
-        wck.player.momentum = wck.player.speedBoost;
+        momentum = speedBoost;
         StartCoroutine(Momentum());
     }
 
     // Gère l'accélération du joueur au fil du temps
     private IEnumerator Momentum() {
-            while (wck.player.momentum >= 1) {
+            while (momentum >= 1) {
             yield return new WaitForSeconds(0.05f);
-            wck.player.momentum -= wck.player.momentumDecay;
+            momentum -= momentumDecay;
             }
     }
 
@@ -104,10 +104,10 @@ public class CharacterMovement : MonoBehaviour {
     private void Rotate() {
         if (move != Vector3.zero) {
             if (character.rotation == Quaternion.Inverse(rotation)) {
-                Flip(wck.player.sharpSpeed);
+                Flip(sharpSpeed);
             }
             else {
-                Flip(wck.player.smoothSpeed);
+                Flip(smoothSpeed);
             }
         }
     }
