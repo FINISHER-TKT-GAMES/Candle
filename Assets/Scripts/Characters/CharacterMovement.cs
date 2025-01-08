@@ -13,11 +13,24 @@ public class CharacterMovement : MonoBehaviour {
     public Transform groundCheck;
     public LayerMask groundLayer;
 
+    [Header("Vitesse déplacements")]
+    public float playerSpeed; // Vitesse de déplacements
+    public int sharpSpeed; // Rotation du modèle en direction opposée
+    public int smoothSpeed; // Rotation du modèle normal
+
+    [Header("Gravité")]
+    public float jumpHeight; // Hauteur de saut
+    public float gravity; // Gravité subit par le joueur
+    public bool isGrounded; // Définit si le joueur est sur le sol
+
+    [Header("Accélération")]
+    public float speedBoost; // Accélération ajoutée lors d'un saut
+    public float momentum; // Accélération du joueur
+    public float momentumDecay; // Vitesse de déccélération
+
     private Vector3 move;
     private Quaternion rotation;
     private Vector3 velocity;
-
-    private bool isGrounded;
 
     void Start() {
         SetCursor();

@@ -20,18 +20,6 @@ public enum Obstacle {door, wall};
 public struct Player {
 
     // Général
-    public int sharpSpeed; // Rotation du modèle en direction opposée
-    public int smoothSpeed; // Rotation du modèle normal
-    public float playerSpeed; // Vitesse de déplacements
-
-    public float jumpHeight; // Hauteur de saut
-    public float gravity; // Gravité subit par le joueur
-    public bool isGrounded; // Définit si le joueur est sur le sol
-
-    public float speedBoost; // Accélération ajoutée lors d'un saut
-    public float momentum; // Accélération du joueur
-    public float momentumDecay; // Vitesse de déccélération
-
     public float reach; // Distance max d'intéraction avec des éléments du jeu
 
     public float wax; // Taux de cire acculmulé par le joueur
@@ -105,24 +93,13 @@ public class wck : MonoBehaviour {
         ctrl.interact = KeyCode.E;
         ctrl.burnFaster = KeyCode.R;
 
-        player.sharpSpeed = 6000;
-        player.smoothSpeed = 400;
-        player.playerSpeed = 10;
-
-        player.jumpHeight = 1.4f;
-        player.gravity = -9.81f;
-        player.isGrounded = false;
-
-        player.speedBoost = 8;
-        player.momentum = 0;
-        player.momentumDecay = 1;
-
         player.reach = 10f;
 
         player.waxMax = 30;
         player.waxMin = 5;
         player.wax = 20;
         player.waxDefaultSpeed = 3;
+
         player.waxSpeed = player.waxDefaultSpeed;
         player.waxSpeedState = SpeedState.normal;
         player.waxDecay = 0.1f;

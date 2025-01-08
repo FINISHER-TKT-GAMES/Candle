@@ -511,6 +511,15 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  playerSpeed: 6000
+  sharpSpeed: 400
+  smoothSpeed: 10
+  jumpHeight: 1.4
+  gravity: -9.81
+  isGrounded: 0
+  speedBoost: 8
+  momentum: 0
+  momentumDecay: 1
 --- !u!54 &389017282
 Rigidbody:
   m_ObjectHideFlags: 0
