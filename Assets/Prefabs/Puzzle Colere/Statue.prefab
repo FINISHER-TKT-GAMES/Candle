@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb498c7c246524f44976bf0127b28822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2160793301114835491, guid: 9129302645a4a0c61a375f4187929368, type: 3}
   room: {fileID: 0}
   light: {fileID: 5779511992691097607}
 --- !u!136 &824277026194357839

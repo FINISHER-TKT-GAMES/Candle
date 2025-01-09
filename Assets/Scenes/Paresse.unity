@@ -869,6 +869,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 320410583}
     - target: {fileID: 8025878462648198226, guid: d6a2027c8fd207e408ed6c4262746929, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1773825334759060816}
+    - target: {fileID: 8025878462648198226, guid: d6a2027c8fd207e408ed6c4262746929, type: 3}
       propertyPath: linkedObstacle
       value: 
       objectReference: {fileID: 743420558}
@@ -950,6 +954,17 @@ PrefabInstance:
       insertIndex: 1
       addedObject: {fileID: 320410583}
   m_SourcePrefab: {fileID: 100100000, guid: 9129302645a4a0c61a375f4187929368, type: 3}
+--- !u!114 &1773825334759060816 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2160793301114835491, guid: 9129302645a4a0c61a375f4187929368, type: 3}
+  m_PrefabInstance: {fileID: 1773825334759060815}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320410579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812d4a9185c9d27d6a1852375d39fa12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3089675135003414347
 PrefabInstance:
   m_ObjectHideFlags: 0

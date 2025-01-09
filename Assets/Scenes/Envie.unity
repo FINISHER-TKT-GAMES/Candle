@@ -511,15 +511,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  playerSpeed: 10
-  sharpSpeed: 400
-  smoothSpeed: 6000
-  jumpHeight: 1.4
-  gravity: -9.81
-  isGrounded: 0
-  speedBoost: 8
-  momentum: 0
-  momentumDecay: 1
+  player: {fileID: 2160793301114835491, guid: 9129302645a4a0c61a375f4187929368, type: 3}
 --- !u!54 &389017282
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -666,6 +658,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 85237230520996790, guid: 14987d293df36bd9a9074111d98f86c5, type: 3}
   m_PrefabInstance: {fileID: 3089675135003414347}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &783740474 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2954939784434881326, guid: 14987d293df36bd9a9074111d98f86c5, type: 3}
+  m_PrefabInstance: {fileID: 3089675135003414347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783740472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f172fc22bbc938473b75d3dff49ec09f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &837885894
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,8 +782,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e92823fc8d495479c07e3d9ffff693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2160793301114835491, guid: 9129302645a4a0c61a375f4187929368, type: 3}
   engine: {fileID: 2139831443}
-  end: {fileID: 2139831442}
+  end: {fileID: 783740474}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -1475,8 +1479,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e92823fc8d495479c07e3d9ffff693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2160793301114835491, guid: 9129302645a4a0c61a375f4187929368, type: 3}
   engine: {fileID: 2139831443}
-  end: {fileID: 2139831442}
+  end: {fileID: 783740474}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -1593,8 +1598,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e92823fc8d495479c07e3d9ffff693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2139831444}
   engine: {fileID: 2139831443}
-  end: {fileID: 2139831442}
+  end: {fileID: 783740474}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -2163,17 +2169,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1643858538}
   m_LocalEulerAnglesHint: {x: 91.675995, y: 0, z: 0}
---- !u!114 &2139831442 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5658614871950767578, guid: 9129302645a4a0c61a375f4187929368, type: 3}
-  m_PrefabInstance: {fileID: 1773825334759060815}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f172fc22bbc938473b75d3dff49ec09f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2139831443 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 759886974271295197, guid: 9129302645a4a0c61a375f4187929368, type: 3}
@@ -2183,6 +2178,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f99da435d16df046b47fe8b434a3b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2139831444 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2160793301114835491, guid: 9129302645a4a0c61a375f4187929368, type: 3}
+  m_PrefabInstance: {fileID: 1773825334759060815}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812d4a9185c9d27d6a1852375d39fa12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1773825334759060815

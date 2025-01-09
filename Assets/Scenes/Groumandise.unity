@@ -665,6 +665,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 414967360958082288, guid: 00f4e52a71a07f1479964a7bbcf5bd3b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1773825334759060817}
+    - target: {fileID: 675809985251791174, guid: 00f4e52a71a07f1479964a7bbcf5bd3b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1773825334759060817}
     - target: {fileID: 1755292061730657520, guid: 00f4e52a71a07f1479964a7bbcf5bd3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.31806
@@ -705,10 +713,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1917631663943215458, guid: 00f4e52a71a07f1479964a7bbcf5bd3b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1773825334759060817}
     - target: {fileID: 5465359993948055401, guid: 00f4e52a71a07f1479964a7bbcf5bd3b, type: 3}
       propertyPath: m_Name
       value: Bridge
       objectReference: {fileID: 0}
+    - target: {fileID: 6377629966992580691, guid: 00f4e52a71a07f1479964a7bbcf5bd3b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1773825334759060817}
+    - target: {fileID: 6755927328154475482, guid: 00f4e52a71a07f1479964a7bbcf5bd3b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1773825334759060817}
+    - target: {fileID: 7743115805843033138, guid: 00f4e52a71a07f1479964a7bbcf5bd3b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1773825334759060817}
+    - target: {fileID: 8161455021238834871, guid: 00f4e52a71a07f1479964a7bbcf5bd3b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1773825334759060817}
+    - target: {fileID: 8402458580939852176, guid: 00f4e52a71a07f1479964a7bbcf5bd3b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1773825334759060817}
+    - target: {fileID: 8857024672968605651, guid: 00f4e52a71a07f1479964a7bbcf5bd3b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1773825334759060817}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -903,6 +939,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f99da435d16df046b47fe8b434a3b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1773825334759060817 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2160793301114835491, guid: 9129302645a4a0c61a375f4187929368, type: 3}
+  m_PrefabInstance: {fileID: 1773825334759060815}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812d4a9185c9d27d6a1852375d39fa12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3089675135003414347
