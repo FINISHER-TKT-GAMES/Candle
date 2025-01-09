@@ -625,6 +625,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1529150970 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7307286876207119165, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
+  m_PrefabInstance: {fileID: 1838092699}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43933a136e839148b3ac2e6dff11939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1796035807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2939800074238720671, guid: 9129302645a4a0c61a375f4187929368, type: 3}
+  m_PrefabInstance: {fileID: 1773825334759060815}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1796035813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796035807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812d4a9185c9d27d6a1852375d39fa12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 1529150970}
+  data: {fileID: 11400000, guid: 8816dc15f750ae5518e587cb6570b6d8, type: 2}
 --- !u!1001 &1838092699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -633,10 +663,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6090899733329350819, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1796035813}
     - target: {fileID: 6523526735616034028, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7307286876207119165, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1796035813}
     - target: {fileID: 7307286876207119165, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
       propertyPath: DefaultPlayerSpeed
       value: 10
@@ -779,10 +817,14 @@ PrefabInstance:
       propertyPath: EndScene
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5658614871950767578, guid: 9129302645a4a0c61a375f4187929368, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2939800074238720671, guid: 9129302645a4a0c61a375f4187929368, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1796035813}
   m_SourcePrefab: {fileID: 100100000, guid: 9129302645a4a0c61a375f4187929368, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

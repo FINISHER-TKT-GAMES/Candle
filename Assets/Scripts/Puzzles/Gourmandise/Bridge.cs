@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class Bridge : MonoBehaviour {
 
+    [SerializeField]
+    private PlayerManager player;
+
     private bool isBroken = false;
 
     // Détecte le joueur et casse les planches sous ses pieds si son poids est trop elevé
     private void OnTriggerEnter(Collider collider) {
-        if (collider.tag == "Player" && !isBroken && wck.player.wax >= wck.bridge.weightLimit) {
+        if (collider.tag == "Player" && !isBroken && player.data.wax >= wck.bridge.weightLimit) {
             BreakPlank();
         }
     }

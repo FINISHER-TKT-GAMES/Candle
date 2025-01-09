@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Torch : MonoBehaviour {
 
+    [SerializeField]
+    private PlayerManager player;
+
     [Header("Scripts")]
     public Engine engine;
     public End end;
@@ -36,8 +39,8 @@ public class Torch : MonoBehaviour {
             playerNear = engine.ScanAround(torchPos.position, wck.torch.detectionRange, playerLayer);
             
             if (playerNear) {
-            wck.player.currentTorch = ID;
-            wck.player.torchCount++;
+            player.data.currentTorch = ID;
+            player.data.torchCount++;
             CheckTorchCount();
             }  
         }
@@ -59,19 +62,19 @@ public class Torch : MonoBehaviour {
 
     // Contrôle la lumière des torches
     private void HandleLighting() {
-        if (playerNear && ID == wck.player.currentTorch) {
+        if (playerNear && ID == player.data.currentTorch) {
             LightUp();
         }
 
-        if (ID == wck.player.currentTorch + 1 && currentState == lightState.off) {
+        if (ID == player.data.currentTorch + 1 && currentState == lightState.off) {
             Ignite();
         }
     }
 
     // Vérifie si le joueur a activé toutes les torches
     private void CheckTorchCount() {
-        Debug.Log("torch count: " + wck.player.torchCount);
-        if (wck.player.torchCount >= wck.player.torchMax) {
+        Debug.Log("torch count: " + player.data.torchCount);
+        if (player.data.torchCount >= player.data.torchMax) {
             end.Unlock();
         }
     }

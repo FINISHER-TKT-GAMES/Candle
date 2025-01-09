@@ -3,6 +3,9 @@ using System.Collections;
 
 public class RestPoint : MonoBehaviour {
 
+    [SerializeField]
+    private PlayerManager player;
+
     public Engine engine;
 
     // Paramètres du point de repos
@@ -30,10 +33,10 @@ public class RestPoint : MonoBehaviour {
     // Compte le temps que le joueur passe à côté du point de repos
     private IEnumerator StartTimer() {
         timerRunning = true;
-        while (wck.player.timeSpent < restTime) {
+        while (player.data.timeSpent < restTime) {
             yield return new WaitForSeconds(1);
-            wck.player.timeSpent++;
-            Debug.Log("Time spent: " + wck.player.timeSpent); // DEBUG
+            player.data.timeSpent++;
+            Debug.Log("Time spent: " + player.data.timeSpent); // DEBUG
         }
         Debug.Log("Timer over");
         timerRunning = false;
@@ -45,7 +48,7 @@ public class RestPoint : MonoBehaviour {
             StopAllCoroutines();
             Debug.Log("Timer stopped");
             timerRunning = false;
-            wck.player.timeSpent = 0;
+            player.data.timeSpent = 0;
     }
 
     // Débloque l'obstacle lié au point de repos

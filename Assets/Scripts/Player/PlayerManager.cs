@@ -18,12 +18,7 @@ public class PlayerManager : MonoBehaviour {
             switch (currentState)
             {
                 case "playing":
-                    //_inputScript.enabled = false;
                     playerMovement.enabled = false;
-                    //_collisionScript.enabled = false;
-                    break;
-                case "respawnLastCP":
-                    //_respawnLastCP.enabled = false;
                     break;
                 default:
                     break;

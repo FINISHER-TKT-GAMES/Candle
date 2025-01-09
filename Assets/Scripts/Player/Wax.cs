@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Wax : MonoBehaviour {
 
+    [SerializeField]
+    private PlayerManager player;
+
     [SerializeField] private float waxLeft; // DEBUG
 
     void Start() {
@@ -10,27 +13,27 @@ public class Wax : MonoBehaviour {
     }
 
     void Update() {
-        waxLeft = wck.player.wax;
+        waxLeft = player.data.wax;
          BurnFaster(0.1f);
     }
 
     // Permet de récupérer de la cire
     public void PickupWax(float amount) {
-        if (wck.player.wax < wck.player.waxMax) {
-            if (wck.player.wax + amount < wck.player.waxMax) {
-                wck.player.wax += amount;
+        if (player.data.wax < player.data.waxMax) {
+            if (player.data.wax + amount < player.data.waxMax) {
+                player.data.wax += amount;
             }
             else {
-                wck.player.wax = wck.player.waxMax;
+                player.data.wax = player.data.waxMax;
             }
         }
     }
 
     // Fait diminuer la cire du joueur au fil du temps
     private IEnumerator LoseWax() {
-        while (wck.player.wax >= wck.player.waxMin) {
-            yield return new WaitForSeconds(wck.player.waxSpeed);
-            wck.player.wax -= wck.player.waxDecay;
+        while (player.data.wax >= player.data.waxMin) {
+            yield return new WaitForSeconds(player.data.waxSpeed);
+            player.data.wax -= player.data.waxDecay;
         }
     }
 
@@ -38,13 +41,13 @@ public class Wax : MonoBehaviour {
     // Permet de brûler notre cire plus vite
     private void BurnFaster(float multiplier) {
         if (Input.GetKey(wck.ctrl.burnFaster)) {
-            wck.player.waxSpeed = wck.player.waxDefaultSpeed * multiplier;
-            wck.player.waxSpeedState = SpeedState.boost;
-            // Debug.Log("Wax speed: " + wck.player.waxSpeed);  DEBUG
-            //Debug.Log("Speed state: " + wck.player.waxSpeedState);  DEBUG
+            player.data.waxSpeed = player.data.waxDefaultSpeed * multiplier;
+            player.data.waxSpeedState = SpeedState.boost;
+            // Debug.Log("Wax speed: " + player.data.waxSpeed);  DEBUG
+            //Debug.Log("Speed state: " + player.data.waxSpeedState);  DEBUG
         } else {
-            wck.player.waxSpeed = wck.player.waxDefaultSpeed;
-            wck.player.waxSpeedState = SpeedState.normal;
+            player.data.waxSpeed = player.data.waxDefaultSpeed;
+            player.data.waxSpeedState = SpeedState.normal;
         }
     }
     

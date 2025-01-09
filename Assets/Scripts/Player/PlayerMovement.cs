@@ -49,10 +49,6 @@ public class PlayerMovement : MonoBehaviour {
     private void Gravity() {
         player.data.isGrounded = Physics.CheckSphere(groundCheck.position, 0.3f, groundLayer);
 
-        if (player.data.isGrounded && player.data.velocity.y < 0) {
-            player.data.velocity.y = -0f;
-        }
-
         player.data.velocity.y += player.data.gravity * Time.deltaTime;
         controller.Move(player.data.velocity * Time.deltaTime);
     }
