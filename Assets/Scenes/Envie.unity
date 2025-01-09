@@ -511,9 +511,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  playerSpeed: 6000
+  playerSpeed: 10
   sharpSpeed: 400
-  smoothSpeed: 10
+  smoothSpeed: 6000
   jumpHeight: 1.4
   gravity: -9.81
   isGrounded: 0
