@@ -13,6 +13,7 @@ public class PlayerData : ScriptableObject {
     public float jumpHeight; // Hauteur de saut
     public float gravity; // Gravité subit par le joueur
     public bool isGrounded; // Définit si le joueur est sur le sol
+    public bool isJumping; // Définit si le joueur saute
 
     [Header("Accélération")]
     public float speedBoost; // Accélération ajoutée lors d'un saut

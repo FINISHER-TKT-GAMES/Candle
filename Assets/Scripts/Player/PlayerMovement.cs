@@ -26,9 +26,13 @@ public class PlayerMovement : MonoBehaviour {
         Rotate();
         Gravity();
         Jump();
+        if (player.data.isGrounded && player.data.velocity.y < 0) {
+            player.data.velocity.y = 0;
+            player.data.gravity = -18;
+        }
     }
 
-    // Movements du joueur relatif à la rotation de la caméra
+    // Mouvements du joueur relatif à la rotation de la caméra
     private void Movement() {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -51,21 +55,29 @@ public class PlayerMovement : MonoBehaviour {
 
         player.data.velocity.y += player.data.gravity * Time.deltaTime;
         controller.Move(player.data.velocity * Time.deltaTime);
+
+        if (player.data.isGrounded == false) {
+            StartCoroutine(GravityAcc());
+        }
     }
 
     // Fonction de saut du joueur
     private void Jump() {
         if (Input.GetKeyDown(KeyCode.Space) && player.data.isGrounded) {
+            player.data.isJumping = true;
             AddMomentum();
         player.data.velocity.y = Mathf.Sqrt(player.data.jumpHeight * -2f * player.data.gravity);
-        StartCoroutine(GravityAcc());
+        } else {
+            player.data.isJumping = false;
         }
     }
 
     private IEnumerator GravityAcc() {
-        while (!player.data.isGrounded) {
-            yield return new WaitForSeconds(0.1f);
-            player.data.gravity += 0.5f;
+        Debug.Log(player.data.isGrounded);
+        while (player.data.isGrounded == false) {
+            Debug.Log("w");
+            yield return new WaitForSeconds(0.3f);
+            player.data.gravity -= 0.05f;
         }
     }
 
