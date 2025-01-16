@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Puzzle Envie.meta
 guid: fecae7df3ebe632eeb19a856eae6b1bf
+========
+guid: ea4ce9094456ece44a6145b9daacc93d
+>>>>>>>> feature/moteurPhysique:Assets/Prefabs/Puzzle Gourmandise.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

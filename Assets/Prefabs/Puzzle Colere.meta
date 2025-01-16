@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Puzzle Colere.meta
 guid: 1019f910984595340bacab62bf9a45de
+========
+guid: fecae7df3ebe632eeb19a856eae6b1bf
+>>>>>>>> feature/moteurPhysique:Assets/Prefabs/Puzzle Envie.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

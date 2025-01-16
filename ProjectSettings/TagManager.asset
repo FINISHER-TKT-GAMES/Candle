@@ -3,17 +3,28 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
+<<<<<<< HEAD
   tags: []
+=======
+  tags:
+  - Wind
+>>>>>>> feature/moteurPhysique
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - flame
   - Water
   - UI
+<<<<<<< HEAD
   - Ground
   - Player
   - Object
+=======
+  - Wind
+  - Ground
+  - Player
+>>>>>>> feature/moteurPhysique
   - 
   - 
   - 
