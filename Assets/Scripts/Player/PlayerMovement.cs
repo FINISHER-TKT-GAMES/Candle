@@ -73,9 +73,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private IEnumerator GravityAcc() {
-        Debug.Log(player.data.isGrounded);
         while (player.data.isGrounded == false) {
-            Debug.Log("w");
             yield return new WaitForSeconds(0.3f);
             player.data.gravity -= 0.05f;
         }
@@ -114,7 +112,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void SlowMovement(float multiplier) {
-        if (Input.GetKey(wck.ctrl.slow)) {
+        if (Input.GetKey(KeyCode.LeftShift)) {
             player.data.Speed = player.data.DefaultSpeed * multiplier;
         } else {
             player.data.Speed = player.data.DefaultSpeed;

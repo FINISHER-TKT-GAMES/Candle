@@ -17,11 +17,72 @@ Dans un monde où les bougies sont les âmes d’anciens aventuriers piégés pa
 
 - Thèmes Profonds : Exploration des sept péchés capitaux à travers des zones de jeu uniques qui dévoilent des fragments de la mémoire de Wick.
 
-## contenu de la branche
+## Installation et Démarrage
 
-Cette branche continet le code relatif au moteur physique du jeu, incluant les interactions de Wick avec l'environnement (eau, vent), les mécaniques de lumière et de chaleur.
+Prérequis
+- Unity (version recommandée : 202X.X.X)
+- Git
+- Un compte sur GitHub pour accéder au repository privé.
 
+### Installation
 
+1- Clonez le repository GitHub :
+```bash
+git clone https://github.com/ton_organisation/Wicks-Journey.git
+cd Wicks-Journey
+```
+
+2- Ouvrez le projet dans Unity.
+
+3- Installez les dépendances nécessaires via le Package Manager d'Unity si elles ne sont pas installées automatiquement.
+
+### Lancement du Jeu
+Dans Unity :
+
+1- Ouvrez la scène principale située dans le dossier Assets/Scenes.
+
+2- Appuyez sur le bouton Play pour tester le jeu dans l'éditeur.
+
+## Structure du Projet
+
+- Assets/ : Contient tous les assets du jeu, y compris les modèles 3D, les textures, les scripts, et les scènes.
+    - Scenes/ : Fichiers de scènes Unity.
+    - Scripts/ : Scripts en C# pour les mécaniques de jeu.
+    - Models/ : Modèles 3D pour les personnages, les objets et les environnements.
+    - UI/ : Éléments d'interface utilisateur.
+- Docs/ : Documentation du projet, y compris les concept arts, les notes de design, et les informations techniques.
+
+## Contribuer
+
+1- Clonez le projet et créez une nouvelle branche :
+```bash
+git clone https://github.com/ton_organisation/Wicks-Journey.git
+git checkout -b nom-de-votre-branche
+```
+2- Commitez vos changements :
+```bash
+git commit -m "Description de votre modification"
+```
+3- Pushez la branche sur le repository distant :
+```bash
+git push origin nom-de-votre-branche
+```
+4- Créez une Pull Request sur GitHub pour soumettre votre contribution.
+
+## Roadmap
+
+- Phase 1 : Création de la carte et des environnements principaux
+- Phase 2 : Implémentation des mécaniques de jeu de base (reset, gestion de la flamme, puzzles de lumière)
+- Phase 3 : Développement des zones de péchés capitaux et intégration du lore
+- Phase 4 : Test et optimisation
+- Phase 5 : Version alpha pour tests utilisateurs
+
+## Équipe
+
+- Gestion de Projet : Théau Yapi
+- Développeur en chef : Dorian Blatière
+- Développeurs junior : 
+- Artistes 3D : Horizon 3D studio
 
 ## Ressources Utiles
 - Trello du projet pour suivre l'avancement des tâches

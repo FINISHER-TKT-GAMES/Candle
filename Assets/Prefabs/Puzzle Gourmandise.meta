@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Prefabs/Puzzle Gourmandise.meta
 guid: ea4ce9094456ece44a6145b9daacc93d
-========
-guid: 2ee841d88620fa24fae6c47003122495
->>>>>>>> feature/moteurPhysique:Assets/Prefabs/Puzzle Paresse.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

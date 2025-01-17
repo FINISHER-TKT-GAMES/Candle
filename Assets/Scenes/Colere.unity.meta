@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scenes/Colere.unity.meta
 guid: 2f082f35c02715c4faa84bbb168b30d3
 DefaultImporter:
   externalObjects: {}
-========
-guid: fade42e8bc714b018fac513c043d323b
-timeCreated: 1425440388
-licenseType: Store
-TextScriptImporter:
->>>>>>>> feature/moteurPhysique:Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 

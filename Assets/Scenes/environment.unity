@@ -6907,6 +6907,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f99da435d16df046b47fe8b434a3b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &483036790 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2160793301114835491, guid: 9129302645a4a0c61a375f4187929368, type: 3}
+  m_PrefabInstance: {fileID: 957941894}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483036787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812d4a9185c9d27d6a1852375d39fa12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &533367920
 GameObject:
   m_ObjectHideFlags: 0
@@ -8723,7 +8734,7 @@ GameObject:
   - component: {fileID: 1121998177}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8746,7 +8757,8 @@ MonoBehaviour:
   groundCheck: {fileID: 1382857925}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 64
+  player: {fileID: 483036790}
 --- !u!143 &1121998178
 CharacterController:
   m_ObjectHideFlags: 0
@@ -12307,7 +12319,7 @@ GameObject:
   - component: {fileID: 2073938103}
   - component: {fileID: 2073938102}
   - component: {fileID: 2073938101}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
