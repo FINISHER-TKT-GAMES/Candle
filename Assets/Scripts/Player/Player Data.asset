@@ -17,23 +17,24 @@ MonoBehaviour:
   sharpSpeed: 6000
   smoothSpeed: 400
   jumpHeight: 2
-  gravity: -18
-  isGrounded: 1
+  gravity: -15501.244
+  isGrounded: 0
   isJumping: 0
   speedBoost: 4
   momentum: 0
   momentumDecay: 1
   move: {x: 0, y: 0, z: 0}
-  rotation: {x: 0, y: -0.7123351, z: 0, w: 0.7018395}
-  velocity: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: -0.14283684, z: -0, w: 0.9897463}
+  velocity: {x: 0, y: -730435.7, z: 0}
   reach: 10
-  wax: 13.999977
+  temperature: 20
+  wax: 28.599966
   waxMin: 5
   waxMax: 30
   waxDefaultSpeed: 3
   waxSpeed: 3
   waxSpeedState: 0
-  waxDecay: 0.1
+  waxDecay: 0.2
   currentTorch: 0
   torchCount: 0
   torchMax: 3

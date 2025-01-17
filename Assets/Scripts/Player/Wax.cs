@@ -33,6 +33,7 @@ public class Wax : MonoBehaviour {
     private IEnumerator LoseWax() {
         while (player.data.wax >= player.data.waxMin) {
             yield return new WaitForSeconds(player.data.waxSpeed);
+            player.data.waxDecay = player.data.temperature/100;
             player.data.wax -= player.data.waxDecay;
         }
     }
