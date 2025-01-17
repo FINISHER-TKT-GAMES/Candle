@@ -40,11 +40,7 @@ public class Wax : MonoBehaviour {
     // WIP
     // Permet de brûler notre cire plus vite
     private void BurnFaster(float multiplier) {
-<<<<<<< HEAD
-        if (Input.GetKey(wck.ctrl.burnFaster)) {
-=======
         if (Input.GetKey(KeyCode.R)) {
->>>>>>> parent of 310572c (Revert "Changements après merge")
             player.data.waxSpeed = player.data.waxDefaultSpeed * multiplier;
             player.data.waxSpeedState = SpeedState.boost;
             // Debug.Log("Wax speed: " + player.data.waxSpeed);  DEBUG
