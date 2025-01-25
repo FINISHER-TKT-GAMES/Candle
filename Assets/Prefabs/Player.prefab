@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244643778237551313}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2534014, y: -0.000000042288523, z: 0.0000000110775265, w: 0.9673612}
-  m_LocalPosition: {x: 0, y: 2.25, z: -4}
+  m_LocalRotation: {x: 0.13000736, y: -0.55768985, z: 0.08896569, w: 0.81496334}
+  m_LocalPosition: {x: 3.519989, y: 1.2362938, z: -1.3675289}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -200,6 +200,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5626145424797829674}
+  - {fileID: 1039679967779776387}
   m_Father: {fileID: 8223397308611831870}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6523526735616034028
@@ -261,7 +262,9 @@ MonoBehaviour:
   groundCheck: {fileID: 7871930380141787463}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
+  flame: {fileID: 0}
+  bendFlame: {x: 0, y: -0.352, z: 1.66}
   player: {fileID: 2160793301114835491, guid: 9129302645a4a0c61a375f4187929368, type: 3}
 --- !u!114 &6090899733329350819
 MonoBehaviour:
@@ -412,8 +415,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6916305412341942405}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25340137, y: -0.00000004214685, z: 0.000000010536715, w: 0.9673613}
-  m_LocalPosition: {x: 0, y: 2.25, z: -4}
+  m_LocalRotation: {x: 0.13000736, y: -0.55768985, z: 0.08896569, w: 0.81496334}
+  m_LocalPosition: {x: 3.519989, y: 1.2362938, z: -1.3675289}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -496,7 +499,7 @@ MonoBehaviour:
     SplineCurvature: 0.5
   RecenteringTarget: 3
   HorizontalAxis:
-    Value: 0
+    Value: -68.76868
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -506,7 +509,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: 17.5
+    Value: 7.5797815
     Center: 17.5
     Range: {x: -10, y: 45}
     Wrap: 0
@@ -609,7 +612,7 @@ MonoBehaviour:
         LegacyInput: Mouse Y
         LegacyGain: -200
         CancelDeltaTime: 0
-      InputValue: 0
+      InputValue: -0
       Driver:
         AccelTime: 0
         DecelTime: 0
@@ -628,6 +631,37 @@ MonoBehaviour:
         DecelTime: 0
   PlayerIndex: -1
   AutoEnableInputs: 1
+--- !u!1 &7101427661441074416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1039679967779776387}
+  m_Layer: 7
+  m_Name: Flamme
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1039679967779776387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7101427661441074416}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.034, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6255996323244127261}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8629958742089081622
 GameObject:
   m_ObjectHideFlags: 0

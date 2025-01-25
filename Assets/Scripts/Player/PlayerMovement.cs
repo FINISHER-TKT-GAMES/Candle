@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 // This class is used to manage the movement of the character
 public class PlayerMovement : MonoBehaviour {
@@ -13,6 +14,11 @@ public class PlayerMovement : MonoBehaviour {
     public Transform groundCheck;
     public LayerMask groundLayer;
 
+    [Header("Flamme")]
+    public Transform flame;
+    public Vector3 defaultPos;
+    public Vector3 bendPos;
+
     [SerializeField]
     private PlayerManager player;
 
@@ -22,14 +28,11 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update() {
         Movement();
-        SlowMovement(0.5f);
+        Sneak(0.5f);
         Rotate();
         Gravity();
         Jump();
-        if (player.data.isGrounded && player.data.velocity.y < 0) {
-            player.data.velocity.y = 0;
-            player.data.gravity = -18;
-        }
+        Bend();
     }
 
     // Mouvements du joueur relatif à la rotation de la caméra
@@ -69,6 +72,10 @@ public class PlayerMovement : MonoBehaviour {
         player.data.velocity.y = Mathf.Sqrt(player.data.jumpHeight * -2f * player.data.gravity);
         } else {
             player.data.isJumping = false;
+        }
+        if (player.data.isGrounded && player.data.velocity.y < 0) {
+            player.data.velocity.y = 0;
+            player.data.gravity = -18;
         }
     }
 
@@ -111,7 +118,8 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    private void SlowMovement(float multiplier) {
+    // Fonction de sneak du joueur
+    private void Sneak(float multiplier) {
         if (Input.GetKey(KeyCode.LeftShift)) {
             player.data.Speed = player.data.DefaultSpeed * multiplier;
         } else {
@@ -119,9 +127,20 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    // Fonction de bend du joueur
+    private void Bend() {
+        if (Input.GetKey(KeyCode.C)) {
+            player.data.movementState = PlayerData.MovementState.bending;
+            flame.position = bendPos;
+        }
+        else {
+            flame.position = defaultPos;
+        }
+    }
+
      // Lock le curseur sur la fenêtre du jeu
     private void SetCursor() {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
     }
 }

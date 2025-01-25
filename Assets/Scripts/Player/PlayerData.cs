@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Player Data", fileName = "Player Data")]
@@ -6,6 +7,8 @@ public class PlayerData : ScriptableObject {
     [Header("Vitesse déplacements")]
     public float DefaultSpeed; // Vitesse de déplacements par défaut
     public float Speed; // Vitesse de déplacements
+    public enum MovementState {walking, sneaking, bending}
+    public MovementState movementState;
     public int sharpSpeed; // Rotation du modèle en direction opposée
     public int smoothSpeed; // Rotation du modèle normal
 
