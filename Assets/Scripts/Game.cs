@@ -43,7 +43,7 @@ public struct StatueObject {
 }
 
 
-public class wck : MonoBehaviour {
+public class Game : MonoBehaviour {
 
     public static Object engine;
     public static World world;

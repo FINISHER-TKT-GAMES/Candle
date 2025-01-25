@@ -13,7 +13,7 @@ public class Reset : MonoBehaviour {
 
     void Start() {
         // Démarre le timer en tâche de fond
-        StartCoroutine(Time(wck.world.resetTime));
+        StartCoroutine(Time(Game.world.resetTime));
     }
 
     void Update() {
@@ -25,12 +25,12 @@ public class Reset : MonoBehaviour {
     // Attend [time] secondes et ensuite reset le monde
     public IEnumerator Time(float time) {
         isTimerRunning = true;
-        wck.world.timeLeft = time;
+        Game.world.timeLeft = time;
 
-        while (wck.world.timeLeft >= 0) {
+        while (Game.world.timeLeft >= 0) {
             yield return new WaitForSeconds(1);
-            PrintTime(wck.world.timeLeft);
-            wck.world.timeLeft--;
+            PrintTime(Game.world.timeLeft);
+            Game.world.timeLeft--;
         }
         ResetWorld();
     }

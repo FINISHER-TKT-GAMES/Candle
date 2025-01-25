@@ -7,7 +7,7 @@ public class Burn : MonoBehaviour {
     private PlayerManager player;
 
     public int burnTime;
-    private int timeSpent = 0;
+    private int burningTime = 0;
 
 
     public void OnTriggerEnter(Collider @object) {
@@ -18,12 +18,11 @@ public class Burn : MonoBehaviour {
     }
 
     private IEnumerator StartBurn() {
-        while (timeSpent < burnTime) {
+        while (burningTime < burnTime) {
             yield return new WaitForSeconds(1);
-            timeSpent++;
+            burningTime++;
         }
         Debug.Log("Burning object");
         Destroy(gameObject);
-        // timeSpent = 0;
     }
 }

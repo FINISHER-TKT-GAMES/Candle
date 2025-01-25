@@ -20,7 +20,7 @@ public class RestPoint : MonoBehaviour {
 
 
     void Update() {
-        playerNear = engine.ScanAround(transform.position, wck.restpoint.detectionRange, playerLayer);
+        playerNear = engine.ScanAround(transform.position, Game.restpoint.detectionRange, playerLayer);
         // Lance le timer si le joueur est proche, et le coupe si il s'éloigne
         if (playerNear && !timerRunning) {
             StartCoroutine(StartTimer());

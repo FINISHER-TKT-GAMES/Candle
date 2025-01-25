@@ -9,7 +9,7 @@ public class Bridge : MonoBehaviour {
 
     // Détecte le joueur et casse les planches sous ses pieds si son poids est trop elevé
     private void OnTriggerEnter(Collider collider) {
-        if (collider.tag == "Player" && !isBroken && player.data.wax >= wck.bridge.weightLimit) {
+        if (collider.tag == "Player" && !isBroken && player.data.wax >= Game.bridge.weightLimit) {
             BreakPlank();
         }
     }
