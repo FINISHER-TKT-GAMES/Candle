@@ -6,14 +6,13 @@ public class Burn : MonoBehaviour {
     [SerializeField]
     private PlayerManager player;
 
+    public GameObject fire;
+
     public int burnTime;
     private int burningTime = 0;
 
-    public bool runAnimation = false;
 
-
-    public void OnTriggerEnter(Collider @object) {
-        Debug.Log("Starting to burn object");
+    public void OnTriggerStay(Collider @object) {
         if (@object.CompareTag("Player") && player.data.movementState == PlayerData.MovementState.bending) {
             StartCoroutine(StartBurn());
         }
@@ -21,12 +20,12 @@ public class Burn : MonoBehaviour {
 
     private IEnumerator StartBurn() {
         while (burningTime < burnTime) {
-            runAnimation = true;
+            fire.SetActive(true);
             yield return new WaitForSeconds(1);
             burningTime++;
         }
         Debug.Log("Burning object");
-        runAnimation = false;
+        fire.SetActive(false);
         Destroy(gameObject);
     }
 }

@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void Start() {
         SetCursor();
+        player.data.movementState = PlayerData.MovementState.walking;
     }
 
     void Update() {
@@ -66,7 +67,7 @@ public class PlayerMovement : MonoBehaviour {
 
     // Fonction de saut du joueur
     private void Jump() {
-        if (Input.GetKeyDown(KeyCode.Space) && player.data.isGrounded) {
+        if (Input.GetKey(KeyCode.Space) && player.data.isGrounded) {
             player.data.isJumping = true;
             AddMomentum();
         player.data.velocity.y = Mathf.Sqrt(player.data.jumpHeight * -2f * player.data.gravity);
@@ -135,6 +136,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         else {
             flame.position = defaultPos;
+            player.data.movementState = PlayerData.MovementState.walking;
         }
     }
 
