@@ -275,11 +275,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e92823fc8d495479c07e3d9ffff693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   engine: {fileID: 759886974271295197, guid: 9129302645a4a0c61a375f4187929368, type: 3}
   end: {fileID: 5658614871950767578, guid: 9129302645a4a0c61a375f4187929368, type: 3}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  detectionRange: 2
+  lowIntensity: 0.5
+  highIntensity: 5
   ID: 0
   torchPos: {fileID: 3449900040522847418}
   torchLight: {fileID: 2747191228840033162}

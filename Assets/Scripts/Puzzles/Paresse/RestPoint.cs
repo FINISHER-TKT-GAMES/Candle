@@ -13,6 +13,7 @@ public class RestPoint : MonoBehaviour {
     [SerializeField] public float restTime;    
     [SerializeField] public GameObject linkedObstacle;
     [SerializeField] public LayerMask playerLayer;
+    [SerializeField] public float detectionRange;
 
     [Header("Debug")]
     [SerializeField] private bool playerNear = false;
@@ -20,7 +21,7 @@ public class RestPoint : MonoBehaviour {
 
 
     void Update() {
-        playerNear = engine.ScanAround(transform.position, Game.restpoint.detectionRange, playerLayer);
+        playerNear = engine.ScanAround(transform.position, detectionRange, playerLayer);
         // Lance le timer si le joueur est proche, et le coupe si il s'éloigne
         if (playerNear && !timerRunning) {
             StartCoroutine(StartTimer());

@@ -9,6 +9,8 @@ public class Burn : MonoBehaviour {
     public int burnTime;
     private int burningTime = 0;
 
+    public bool runAnimation = false;
+
 
     public void OnTriggerEnter(Collider @object) {
         Debug.Log("Starting to burn object");
@@ -19,10 +21,12 @@ public class Burn : MonoBehaviour {
 
     private IEnumerator StartBurn() {
         while (burningTime < burnTime) {
+            runAnimation = true;
             yield return new WaitForSeconds(1);
             burningTime++;
         }
         Debug.Log("Burning object");
+        runAnimation = false;
         Destroy(gameObject);
     }
 }

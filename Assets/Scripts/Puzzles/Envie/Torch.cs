@@ -11,6 +11,9 @@ public class Torch : MonoBehaviour {
 
     [Header("Paramètres")]
     public LayerMask playerLayer;
+    public float detectionRange;
+    public float lowIntensity;
+    public float highIntensity;
     
 
     [Header("Torche")]
@@ -36,7 +39,7 @@ public class Torch : MonoBehaviour {
 
     void Update() {
         if (currentState != lightState.on) {
-            playerNear = engine.ScanAround(torchPos.position, Game.torch.detectionRange, playerLayer);
+            playerNear = engine.ScanAround(torchPos.position, detectionRange, playerLayer);
             
             if (playerNear) {
             player.data.currentTorch = ID;
@@ -50,13 +53,13 @@ public class Torch : MonoBehaviour {
 
     // Allume légèrement la flamme de la torche
     private void Ignite() {
-        torchLight.intensity = Game.torch.lowIntensity;
+        torchLight.intensity = lowIntensity;
         currentState = lightState.ignited;
     }
 
     // Allume complètement la flamme de la torche
     private void LightUp() {
-        torchLight.intensity = Game.torch.highIntensity;
+        torchLight.intensity = highIntensity;
         currentState = lightState.on;
     }
 

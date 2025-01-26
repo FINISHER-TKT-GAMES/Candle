@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 652237309589124385}
   - component: {fileID: 2703712828249026591}
-  - component: {fileID: 7975234506532106382}
   - component: {fileID: 8025878462648198226}
+  - component: {fileID: 7975234506532106382}
   - component: {fileID: 8892195618802583670}
   m_Layer: 0
   m_Name: Rest point
@@ -43,6 +43,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983589825065295148}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &8025878462648198226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983589825065295148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5708a1ad8daf0db40b817117a889bce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  engine: {fileID: 0}
+  restTime: 5
+  linkedObstacle: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  detectionRange: 1.5
+  playerNear: 0
+  timerRunning: 0
 --- !u!23 &7975234506532106382
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -88,26 +110,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8025878462648198226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983589825065295148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5708a1ad8daf0db40b817117a889bce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  engine: {fileID: 0}
-  restTime: 5
-  linkedObstacle: {fileID: 0}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  playerNear: 0
-  timerRunning: 0
 --- !u!65 &8892195618802583670
 BoxCollider:
   m_ObjectHideFlags: 0
