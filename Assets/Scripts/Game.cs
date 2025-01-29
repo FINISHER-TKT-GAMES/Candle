@@ -19,23 +19,11 @@ public struct Controls {
 public enum SpeedState {normal, boost}
 public enum Obstacle {door, wall};
 
-public struct BridgeObject {
-    public float weightLimit; // Limite de poids supportable par le pont
-}
-
-public struct StatueObject {
-    public float lightIncrease;
-}
-
-
 public class Game : MonoBehaviour {
 
     public static Object engine;
     public static World world;
     public static Controls ctrl;
-    public static BridgeObject bridge;
-    public static StatueObject statue;
-    
 
     public static void Init() {
 
@@ -50,12 +38,6 @@ public class Game : MonoBehaviour {
         ctrl.burnFaster = KeyCode.R;
         ctrl.slow = KeyCode.LeftShift;
         ctrl.bend = KeyCode.C;
-
-        // Bridge
-        bridge.weightLimit = 25;
-
-        // Statues
-        statue.lightIncrease = 1;
     }
 
     void Start() {

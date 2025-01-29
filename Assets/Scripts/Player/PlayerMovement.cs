@@ -2,7 +2,6 @@ using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Unity.Cinemachine;
 
 
 // This class is used to manage the movement of the character

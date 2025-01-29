@@ -43,18 +43,6 @@ public class PlayerData : ScriptableObject {
     public SpeedState waxSpeedState;
     public float waxDecay; // Taux de perte de la cire
 
-    [Header("Enigme de l'envie")]
-    public int currentTorch; // ID de la dernière torche activée
-    public int torchCount; // Nombre de torches activées
-    public int torchMax; // Nombre de torches à activer
-
-    [Header("Enigme gourmandise")]
-    public float timeSpent;
-
-    [Header("Enigme colère")]
-    public int statueCount;
-    public int statueMax;
-
     [Header("Climbing")]
     public int climbingSpeed;
     public RaycastHit hit;
