@@ -4,12 +4,17 @@ public class PlayerManager : MonoBehaviour {
 
     public static PlayerManager instance { get; private set; }
 
-    private string currentState;
+    public string currentState;
 
     public PlayerMovement playerMovement;
+
+    public PlayerClimbing playerClimbing;
     public PlayerData data;
 
-    public void Init() {
+    public void Start() {
+        playerMovement.enabled = false;
+        playerClimbing.enabled = false;
+
         ChangeState("playing");
     }
 
@@ -20,19 +25,26 @@ public class PlayerManager : MonoBehaviour {
                 case "playing":
                     playerMovement.enabled = false;
                     break;
+                case "climbing":
+                    playerClimbing.enabled = false;
+                    break;
                 default:
                     break;
             }
             // Change Animation
             currentState = newState;
+            switch (currentState) {
+                case "playing":
+                    playerMovement.enabled = true;
+                    break;
+                case "climbing":
+                    playerClimbing.enabled = true;
+                    break;
+            }
         }
     }
 
     void Update() {
-        switch (currentState) {
-            case "playing":
-                playerMovement.enabled = true;
-                break;
-        }
+        
     }
 }

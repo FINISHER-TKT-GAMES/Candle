@@ -13,7 +13,7 @@ public class Reset : MonoBehaviour {
 
     void Start() {
         // Démarre le timer en tâche de fond
-        StartCoroutine(Time(Game.world.resetTime));
+        StartCoroutine(Time(30));
     }
 
     void Update() {

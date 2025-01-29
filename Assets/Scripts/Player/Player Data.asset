@@ -18,14 +18,14 @@ MonoBehaviour:
   sharpSpeed: 6000
   smoothSpeed: 400
   jumpHeight: 2
-  gravity: -18
+  gravity: -18.05
   isGrounded: 1
   isJumping: 0
   speedBoost: 4
   momentum: 0
   momentumDecay: 1
-  move: {x: -0, y: 0, z: 0}
-  rotation: {x: 0, y: 0.2021009, z: 0, w: 0.97936475}
+  move: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 0.8687374, z: 0, w: 0.495273}
   velocity: {x: 0, y: 0, z: 0}
   reach: 10
   temperature: 20

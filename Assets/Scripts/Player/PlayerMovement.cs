@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour {
         Gravity();
         Jump();
         Bend();
+        
     }
 
     // Mouvements du joueur relatif à la rotation de la caméra
