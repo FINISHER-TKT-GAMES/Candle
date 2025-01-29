@@ -54,4 +54,8 @@ public class PlayerData : ScriptableObject {
     [Header("Enigme colère")]
     public int statueCount;
     public int statueMax;
+
+    [Header("Climbing")]
+    public int climbingSpeed;
+    public RaycastHit hit;
 }

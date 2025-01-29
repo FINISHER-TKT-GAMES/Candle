@@ -1,6 +1,9 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Unity.Cinemachine;
+
 
 // This class is used to manage the movement of the character
 public class PlayerMovement : MonoBehaviour {
@@ -9,6 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     public Transform cam;
     public CharacterController controller;
     public Transform character;
+    public CinemachineOrbitalFollow camMachine;
 
     [Header("Détection du sol")]
     public Transform groundCheck;
@@ -25,6 +29,13 @@ public class PlayerMovement : MonoBehaviour {
     void Start() {
         SetCursor();
         player.data.movementState = PlayerData.MovementState.walking;
+    }
+
+    private void OnEnable()
+    {
+        camMachine.Orbits.Top.Radius = 2;
+        camMachine.Orbits.Center.Radius = 4;
+        camMachine.Orbits.Bottom.Radius = 2.5f;
     }
 
     void Update() {

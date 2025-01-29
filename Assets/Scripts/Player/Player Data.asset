@@ -18,18 +18,18 @@ MonoBehaviour:
   sharpSpeed: 6000
   smoothSpeed: 400
   jumpHeight: 2
-  gravity: -18.05
+  gravity: -18
   isGrounded: 1
   isJumping: 0
   speedBoost: 4
-  momentum: 0
+  momentum: -1
   momentumDecay: 1
   move: {x: 0, y: 0, z: 0}
-  rotation: {x: 0, y: 0.8687374, z: 0, w: 0.495273}
+  rotation: {x: 0, y: -0.78373015, z: 0, w: 0.6211015}
   velocity: {x: 0, y: 0, z: 0}
   reach: 10
   temperature: 20
-  wax: 20.799936
+  wax: 4.9999294
   waxMin: 5
   waxMax: 30
   waxDefaultSpeed: 3
@@ -42,3 +42,4 @@ MonoBehaviour:
   timeSpent: 0
   statueCount: 0
   statueMax: 3
+  climbingSpeed: 10
