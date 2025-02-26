@@ -22,24 +22,19 @@ MonoBehaviour:
   isGrounded: 1
   isJumping: 0
   speedBoost: 4
-  momentum: -1
+  momentum: -2
   momentumDecay: 1
   move: {x: 0, y: 0, z: 0}
-  rotation: {x: 0, y: -0.78373015, z: 0, w: 0.6211015}
+  rotation: {x: 0, y: -0.12070214, z: -0, w: 0.99268883}
   velocity: {x: 0, y: 0, z: 0}
   reach: 10
   temperature: 20
-  wax: 4.9999294
+  wax: 14.8
+  waxSpawn: 15
   waxMin: 5
   waxMax: 30
   waxDefaultSpeed: 3
   waxSpeed: 3
   waxSpeedState: 0
   waxDecay: 0.2
-  currentTorch: 0
-  torchCount: 0
-  torchMax: 3
-  timeSpent: 0
-  statueCount: 0
-  statueMax: 3
   climbingSpeed: 10

@@ -547,11 +547,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 656789236292737200, guid: 784e60bf173b6e5489450a67a96ec815, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3405893613707037238, guid: 784e60bf173b6e5489450a67a96ec815, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3472030841754271178, guid: 784e60bf173b6e5489450a67a96ec815, type: 3}
       propertyPath: moveWithTransform
@@ -559,7 +559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3917698592455410101, guid: 784e60bf173b6e5489450a67a96ec815, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4108193950750377869, guid: 784e60bf173b6e5489450a67a96ec815, type: 3}
       propertyPath: moveWithTransform
@@ -571,7 +571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4257168311883463609, guid: 784e60bf173b6e5489450a67a96ec815, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4257168311883463609, guid: 784e60bf173b6e5489450a67a96ec815, type: 3}
       propertyPath: m_IsActive
@@ -655,7 +655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7710506030510914264, guid: 784e60bf173b6e5489450a67a96ec815, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8044026488811565742, guid: 784e60bf173b6e5489450a67a96ec815, type: 3}
       propertyPath: moveWithTransform
@@ -1006,7 +1006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 
   playerMovement: {fileID: 1529150970}
-  playerClimbing: {fileID: 0}
+  playerClimbing: {fileID: 1838092705}
   data: {fileID: 11400000, guid: 8816dc15f750ae5518e587cb6570b6d8, type: 2}
 --- !u!114 &1796035814 stripped
 MonoBehaviour:
@@ -1017,6 +1017,17 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 812d4a9185c9d27d6a1852375d39fa12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1796035816 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2186224852997105724, guid: 9129302645a4a0c61a375f4187929368, type: 3}
+  m_PrefabInstance: {fileID: 1773825334759060815}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796035807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cbc79ba5c3a43d4f80f8583fc19f7e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1838092699
@@ -1071,6 +1082,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.08896569
       objectReference: {fileID: 0}
+    - target: {fileID: 6090899733329350819, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
+      propertyPath: reset
+      value: 
+      objectReference: {fileID: 1796035816}
     - target: {fileID: 6090899733329350819, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
       propertyPath: player
       value: 
@@ -1464,6 +1479,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2160793301114835491, guid: 9129302645a4a0c61a375f4187929368, type: 3}
+      propertyPath: playerClimbing
+      value: 
+      objectReference: {fileID: 1838092705}
     - target: {fileID: 2186224852997105724, guid: 9129302645a4a0c61a375f4187929368, type: 3}
       propertyPath: timerText
       value: 
@@ -1507,7 +1526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7469698681662767853, guid: 22ddf3b662ee950099871a5d7762bff7, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8793912952198512177, guid: 22ddf3b662ee950099871a5d7762bff7, type: 3}
       propertyPath: m_LocalScale.y

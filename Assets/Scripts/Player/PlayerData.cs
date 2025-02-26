@@ -34,6 +34,7 @@ public class PlayerData : ScriptableObject {
 
     [Header("Niveaux de cire")]
     public float wax; // Taux de cire acculmulé par le joueur
+    public float waxSpawn; // Taux de cire de départ
     public float waxMin; // Taux de cire minimum
     public float waxMax; // Taux de cire maximum
 

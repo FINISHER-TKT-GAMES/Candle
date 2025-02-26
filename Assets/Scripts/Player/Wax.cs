@@ -1,10 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Wax : MonoBehaviour {
 
-    [SerializeField]
-    private PlayerManager player;
+    [SerializeField] private PlayerManager player;
+    [SerializeField] private Reset reset;
 
     [SerializeField] private float waxLeft; // DEBUG
 
@@ -14,7 +15,7 @@ public class Wax : MonoBehaviour {
 
     void Update() {
         waxLeft = player.data.wax;
-         BurnFaster(0.1f);
+        BurnFaster(0.1f);
     }
 
     // Permet de récupérer de la cire
@@ -36,6 +37,8 @@ public class Wax : MonoBehaviour {
             player.data.waxDecay = player.data.temperature/100;
             player.data.wax -= player.data.waxDecay;
         }
+        reset.ResetWorld();
+        player.data.wax = player.data.waxSpawn;
     }
 
     // WIP
