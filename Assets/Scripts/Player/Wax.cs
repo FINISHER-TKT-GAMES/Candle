@@ -7,15 +7,12 @@ public class Wax : MonoBehaviour {
     [SerializeField] private PlayerManager player;
     [SerializeField] private Reset reset;
 
-    [SerializeField] private float waxLeft; // DEBUG
-
     void Start() {
         StartCoroutine(LoseWax());
     }
 
     void Update() {
-        waxLeft = player.data.wax;
-        BurnFaster(0.1f);
+        BurnFaster(3);
     }
 
     // Permet de récupérer de la cire
@@ -41,14 +38,13 @@ public class Wax : MonoBehaviour {
         player.data.wax = player.data.waxSpawn;
     }
 
-    // WIP
+    // FIX: Il y a un petit temps avant que BurnFaster s'active
+    //      car il faut attendre la prochaine boucle de LoseWax()
     // Permet de brûler notre cire plus vite
     private void BurnFaster(float multiplier) {
         if (Input.GetKey(KeyCode.R)) {
-            player.data.waxSpeed = player.data.waxDefaultSpeed * multiplier;
+            player.data.waxSpeed = player.data.waxDefaultSpeed / multiplier;
             player.data.waxSpeedState = SpeedState.boost;
-            // Debug.Log("Wax speed: " + player.data.waxSpeed);  DEBUG
-            //Debug.Log("Speed state: " + player.data.waxSpeedState);  DEBUG
         } else {
             player.data.waxSpeed = player.data.waxDefaultSpeed;
             player.data.waxSpeedState = SpeedState.normal;
