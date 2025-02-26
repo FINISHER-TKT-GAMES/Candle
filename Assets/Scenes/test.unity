@@ -1083,6 +1083,10 @@ PrefabInstance:
       value: 0.08896569
       objectReference: {fileID: 0}
     - target: {fileID: 6090899733329350819, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
+      propertyPath: model
+      value: 
+      objectReference: {fileID: 362878567}
+    - target: {fileID: 6090899733329350819, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
       propertyPath: reset
       value: 
       objectReference: {fileID: 1796035816}
@@ -1090,6 +1094,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1796035813}
+    - target: {fileID: 6090899733329350819, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
+      propertyPath: maxSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090899733329350819, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
+      propertyPath: minSize
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6523526735616034028, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
       propertyPath: m_Name
       value: Player
