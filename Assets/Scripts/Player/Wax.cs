@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class Wax : MonoBehaviour {
 
@@ -71,11 +70,8 @@ public class Wax : MonoBehaviour {
 
     // Ajuste la taille du joueur en fonction du niveau de cire
     private void ChangeSize() {
-        // Debug.Log("Changing size");
-        // Debug.Log("Previous size: " + model.transform.localScale);
-        // model.transform.localScale = new Vector3(1, GetSlope() * player.data.wax * GetYInterecpt());
-        // Debug.Log("New size: " + model.transform.localScale);
-        // Debug.Log("Formula: " + GetSlope() + " x " + player.data.wax + " * " + GetYInterecpt());
+        float newSize = minSize + (player.data.wax - player.data.waxMin) / (player.data.waxMax - player.data.waxMin) * (maxSize - minSize);  
+        model.transform.localScale = new Vector3(1, newSize, 1);
     }
     
 }

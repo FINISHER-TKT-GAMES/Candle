@@ -30,8 +30,7 @@ public class PlayerMovement : MonoBehaviour {
         player.data.movementState = PlayerData.MovementState.walking;
     }
 
-    private void OnEnable()
-    {
+    private void OnEnable() {
         camMachine.Orbits.Top.Radius = 2;
         camMachine.Orbits.Center.Radius = 4;
         camMachine.Orbits.Bottom.Radius = 2.5f;
