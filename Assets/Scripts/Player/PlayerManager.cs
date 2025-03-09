@@ -11,11 +11,18 @@ public class PlayerManager : MonoBehaviour {
     public PlayerClimbing playerClimbing;
     public PlayerData data;
 
+    public Reset reset;
+
     public void Start() {
         playerMovement.enabled = false;
         playerClimbing.enabled = false;
 
         ChangeState("playing");
+    }
+
+    public void Die() {
+        // PLUS TARD, ON POURRA AJOUTER UN SCREEN DE MORT ICI..
+        reset.ResetWorld();
     }
 
     public void ChangeState(string newState) {
@@ -42,9 +49,5 @@ public class PlayerManager : MonoBehaviour {
                     break;
             }
         }
-    }
-
-    void Update() {
-        
     }
 }

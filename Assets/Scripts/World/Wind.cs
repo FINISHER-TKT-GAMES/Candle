@@ -20,6 +20,7 @@ public class Wind : MonoBehaviour {
             // flameLight.intensity -= player.data.maxIntensity / player.data.windResistance;
         }
         flameLight.intensity = 0;
+        player.Die();
     }
 
     // Trouve le vecteur [Origine vent - Joueur]

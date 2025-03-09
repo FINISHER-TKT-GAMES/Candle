@@ -919,6 +919,7 @@ MonoBehaviour:
   playerMovement: {fileID: 0}
   playerClimbing: {fileID: 1838092705}
   data: {fileID: 11400000, guid: 8816dc15f750ae5518e587cb6570b6d8, type: 2}
+  reset: {fileID: 0}
 --- !u!114 &1796035814 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2160793301114835491, guid: 9129302645a4a0c61a375f4187929368, type: 3}
@@ -1269,6 +1270,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water
       objectReference: {fileID: 0}
+    - target: {fileID: 1393777481601005097, guid: 33487b2e5bbdff44188e29514bf7e45b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1796035814}
+    - target: {fileID: 1393777481601005097, guid: 33487b2e5bbdff44188e29514bf7e45b, type: 3}
+      propertyPath: flameLight
+      value: 
+      objectReference: {fileID: 591317319}
     - target: {fileID: 4126138993306147658, guid: 33487b2e5bbdff44188e29514bf7e45b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.721118
