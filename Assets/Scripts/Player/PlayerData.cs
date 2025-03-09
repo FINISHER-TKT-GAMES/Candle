@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 [CreateAssetMenu(menuName = "Player Data", fileName = "Player Data")]
 public class PlayerData : ScriptableObject {
@@ -43,6 +44,10 @@ public class PlayerData : ScriptableObject {
     public float waxSpeed; // Vitesse de perte de la cire
     public SpeedState waxSpeedState;
     public float waxDecay; // Taux de perte de la cire
+
+    [Header("Flamme")]
+    public float maxIntensity;
+    public float windResistance;
 
     [Header("Climbing")]
     public int climbingSpeed;
