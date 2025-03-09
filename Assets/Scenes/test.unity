@@ -952,6 +952,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7326e7467524b524ba0fca5d9130e8cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &1838092714 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2393130992871601176, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
+  m_PrefabInstance: {fileID: 1730513475483533192}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1838092719 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7012166542490754892, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
+  m_PrefabInstance: {fileID: 1730513475483533192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1946838452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,6 +1257,63 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1796035813}
   m_SourcePrefab: {fileID: 100100000, guid: 9129302645a4a0c61a375f4187929368, type: 3}
+--- !u!1001 &3808122341000221070
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 548413504617375646, guid: 33487b2e5bbdff44188e29514bf7e45b, type: 3}
+      propertyPath: m_Name
+      value: Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126138993306147658, guid: 33487b2e5bbdff44188e29514bf7e45b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.721118
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126138993306147658, guid: 33487b2e5bbdff44188e29514bf7e45b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126138993306147658, guid: 33487b2e5bbdff44188e29514bf7e45b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 30.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126138993306147658, guid: 33487b2e5bbdff44188e29514bf7e45b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126138993306147658, guid: 33487b2e5bbdff44188e29514bf7e45b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126138993306147658, guid: 33487b2e5bbdff44188e29514bf7e45b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126138993306147658, guid: 33487b2e5bbdff44188e29514bf7e45b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126138993306147658, guid: 33487b2e5bbdff44188e29514bf7e45b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126138993306147658, guid: 33487b2e5bbdff44188e29514bf7e45b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126138993306147658, guid: 33487b2e5bbdff44188e29514bf7e45b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 33487b2e5bbdff44188e29514bf7e45b, type: 3}
 --- !u!1001 &3870721075247098454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1376,6 +1443,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1796035814}
     - target: {fileID: 7583102717974089967, guid: 2413db07cb1bde64ab681e953c39445f, type: 3}
+      propertyPath: playerRb
+      value: 
+      objectReference: {fileID: 1838092714}
+    - target: {fileID: 7583102717974089967, guid: 2413db07cb1bde64ab681e953c39445f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7583102717974089967, guid: 2413db07cb1bde64ab681e953c39445f, type: 3}
       propertyPath: windForce
       value: 5
       objectReference: {fileID: 0}
@@ -1383,6 +1458,10 @@ PrefabInstance:
       propertyPath: flameLight
       value: 
       objectReference: {fileID: 591317319}
+    - target: {fileID: 7583102717974089967, guid: 2413db07cb1bde64ab681e953c39445f, type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 1838092719}
     - target: {fileID: 8120515059610030916, guid: 2413db07cb1bde64ab681e953c39445f, type: 3}
       propertyPath: m_Name
       value: Wind
@@ -1402,3 +1481,4 @@ SceneRoots:
   - {fileID: 1197181798}
   - {fileID: 1730513475483533192}
   - {fileID: 8951433893306797302}
+  - {fileID: 3808122341000221070}
