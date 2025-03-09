@@ -29,7 +29,7 @@ public class Wax : MonoBehaviour {
             else {
                 player.data.wax = player.data.waxMax;
             }
-        ChangeSize();
+        // ChangeSize();
         }
     }
 
@@ -39,7 +39,7 @@ public class Wax : MonoBehaviour {
             yield return new WaitForSeconds(player.data.waxSpeed);
             player.data.waxDecay = player.data.temperature/100;
             player.data.wax -= player.data.waxDecay;
-            ChangeSize();
+            // ChangeSize();
         }
         reset.ResetWorld();
         player.data.wax = player.data.waxSpawn;
@@ -56,16 +56,6 @@ public class Wax : MonoBehaviour {
             player.data.waxSpeed = player.data.waxDefaultSpeed;
             player.data.waxSpeedState = SpeedState.normal;
         }
-    }
-
-    private float GetSlope() {
-        // slope = (x1 - x2) / (y1 - y2)
-        return (maxSize - minSize) / (player.data.waxMax - player.data.waxMin);
-    }
-
-    private float GetYInterecpt() {
-        // yint = x1 - slope * y1
-        return maxSize - GetSlope() * player.data.waxMax;
     }
 
     // Ajuste la taille du joueur en fonction du niveau de cire
