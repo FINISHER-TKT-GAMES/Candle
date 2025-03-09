@@ -86,5 +86,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 812d4a9185c9d27d6a1852375d39fa12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 
   playerMovement: {fileID: 7307286876207119165, guid: 7def4167ab10ad848b37d7e8f769f42b, type: 3}
+  playerClimbing: {fileID: 0}
   data: {fileID: 11400000, guid: 8816dc15f750ae5518e587cb6570b6d8, type: 2}
+  reset: {fileID: 2186224852997105724}
