@@ -1,16 +1,12 @@
 using UnityEngine;
 
-public class Water : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+public class Water : MonoBehaviour {
+
+    public Light flameLight;
+
+    void OnTriggerEnter(Collider collider) {
+        flameLight.intensity = 0;
+        //TODO: AJOUTER FONCITON DE MORT DU JOUEUR ICI
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
