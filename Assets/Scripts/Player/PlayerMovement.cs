@@ -171,12 +171,21 @@ public class PlayerMovement : MonoBehaviour {
     private void CheckCameraCollision() {
         Vector3 directionToCamera = (cam.position - transform.position).normalized;
         float distanceToCamera = Vector3.Distance(transform.position, cam.position);
+        
+        // Démarrer le raycast un peu plus haut que le sol
+        Vector3 rayStart = transform.position + Vector3.up * 0.5f;
+        
+        Debug.DrawRay(rayStart, directionToCamera * maxCameraDistance, Color.red);
 
-        if (Physics.Raycast(transform.position, directionToCamera, out RaycastHit hit, maxCameraDistance, cameraCollisionMask)) {
-            float newDistance = Mathf.Clamp(hit.distance - cameraCollisionOffset, minCameraDistance, maxCameraDistance);
-            camMachine.Orbits.Top.Radius = newDistance;
-            camMachine.Orbits.Center.Radius = newDistance;
-            camMachine.Orbits.Bottom.Radius = newDistance;
+        if (Physics.Raycast(rayStart, directionToCamera, out RaycastHit hit, maxCameraDistance, cameraCollisionMask)) {
+            // Ignorer si on touche le joueur
+            if (hit.collider.gameObject != gameObject) {
+                float newDistance = Mathf.Clamp(hit.distance - cameraCollisionOffset, minCameraDistance, maxCameraDistance);
+                camMachine.Orbits.Top.Radius = newDistance;
+                camMachine.Orbits.Center.Radius = newDistance;
+                camMachine.Orbits.Bottom.Radius = newDistance;
+                print("Collision avec: " + hit.collider.gameObject.name);
+            }
         } else {
             SetDefaultCameraDistance();
         }

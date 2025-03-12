@@ -17,19 +17,19 @@ MonoBehaviour:
   movementState: 0
   sharpSpeed: 6000
   smoothSpeed: 400
-  jumpHeight: 0.5
+  jumpHeight: 0.8
   gravity: -18
   isGrounded: 1
   isJumping: 0
   speedBoost: 2
-  momentum: 10
+  momentum: -1
   momentumDecay: 1
   move: {x: 0, y: 0, z: 0}
-  rotation: {x: 0, y: -0.078209326, z: -0, w: 0.996937}
+  rotation: {x: 0, y: 0.6333695, z: 0, w: 0.77384955}
   velocity: {x: 0, y: 0, z: 0}
   reach: 10
   temperature: 20
-  wax: 6.800008
+  wax: 6.2000084
   waxSpawn: 15
   waxMin: 5
   waxMax: 30
