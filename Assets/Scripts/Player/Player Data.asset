@@ -12,24 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140bc40fd42ae0ddb8e0b2be0dd911a4, type: 3}
   m_Name: Player Data
   m_EditorClassIdentifier: 
-  DefaultSpeed: 10
-  Speed: 10
+  DefaultSpeed: 4
+  Speed: 4
   movementState: 0
   sharpSpeed: 6000
   smoothSpeed: 400
-  jumpHeight: 2
+  jumpHeight: 0.5
   gravity: -18
   isGrounded: 1
   isJumping: 0
-  speedBoost: 4
-  momentum: -2
+  speedBoost: 2
+  momentum: 10
   momentumDecay: 1
-  move: {x: 0, y: 0, z: -0}
-  rotation: {x: 0, y: -0.26092118, z: -0, w: 0.96536016}
+  move: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: -0.078209326, z: -0, w: 0.996937}
   velocity: {x: 0, y: 0, z: 0}
   reach: 10
   temperature: 20
-  wax: 18.199993
+  wax: 6.800008
   waxSpawn: 15
   waxMin: 5
   waxMax: 30

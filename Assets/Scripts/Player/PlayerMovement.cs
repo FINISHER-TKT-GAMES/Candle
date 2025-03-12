@@ -12,6 +12,12 @@ public class PlayerMovement : MonoBehaviour {
     public CharacterController controller;
     public Transform character;
     public CinemachineOrbitalFollow camMachine;
+    public LayerMask cameraCollisionMask; // Ajouter cette ligne
+
+    [Header("Caméra")]
+    public float minCameraDistance = 1f;
+    public float maxCameraDistance = 8f;
+    public float cameraCollisionOffset = 0.1f; // Distance minimale entre la caméra et les obstacles
 
     [Header("Détection du sol")]
     public Transform groundCheck;
@@ -31,9 +37,8 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void OnEnable() {
-        camMachine.Orbits.Top.Radius = 1;
-        camMachine.Orbits.Center.Radius = 2;
-        camMachine.Orbits.Bottom.Radius = 1.5f;
+        // SetDefaultCameraDistance();
+        CheckCameraCollision();
     }
 
     void Update() {
@@ -43,6 +48,7 @@ public class PlayerMovement : MonoBehaviour {
         Gravity();
         Jump();
         Bend();
+        CheckCameraCollision();
         
     }
 
@@ -61,11 +67,11 @@ public class PlayerMovement : MonoBehaviour {
         cameraRight.Normalize();
 
         player.data.move = cameraForward * z + cameraRight * x;
-        controller.Move((player.data.Speed + player.data.momentum) * Time.deltaTime * player.data.move);
+        controller.Move(player.data.Speed * Time.deltaTime * player.data.move);
     }
 
     private void Gravity() {
-        player.data.isGrounded = Physics.CheckSphere(groundCheck.position, 0.3f, groundLayer);
+        player.data.isGrounded = Physics.CheckSphere(groundCheck.position, 0.1f, groundLayer);
 
         player.data.velocity.y += player.data.gravity * Time.deltaTime;
         controller.Move(player.data.velocity * Time.deltaTime);
@@ -80,7 +86,7 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space) && player.data.isGrounded) {
             player.data.isJumping = true;
             AddMomentum();
-        player.data.velocity.y = Mathf.Sqrt(player.data.jumpHeight * -2f * player.data.gravity);
+            player.data.velocity.y = Mathf.Sqrt(player.data.jumpHeight * -2f * player.data.gravity);
         } else {
             player.data.isJumping = false;
         }
@@ -154,5 +160,25 @@ public class PlayerMovement : MonoBehaviour {
     private void SetCursor() {
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
+    }
+
+    private void SetDefaultCameraDistance() {
+        camMachine.Orbits.Top.Radius = maxCameraDistance;
+        camMachine.Orbits.Center.Radius = maxCameraDistance;
+        camMachine.Orbits.Bottom.Radius = maxCameraDistance;
+    }
+
+    private void CheckCameraCollision() {
+        Vector3 directionToCamera = (cam.position - transform.position).normalized;
+        float distanceToCamera = Vector3.Distance(transform.position, cam.position);
+
+        if (Physics.Raycast(transform.position, directionToCamera, out RaycastHit hit, maxCameraDistance, cameraCollisionMask)) {
+            float newDistance = Mathf.Clamp(hit.distance - cameraCollisionOffset, minCameraDistance, maxCameraDistance);
+            camMachine.Orbits.Top.Radius = newDistance;
+            camMachine.Orbits.Center.Radius = newDistance;
+            camMachine.Orbits.Bottom.Radius = newDistance;
+        } else {
+            SetDefaultCameraDistance();
+        }
     }
 }
