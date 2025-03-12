@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Reset : MonoBehaviour {
 
-    public Text timerText;
+/*    public Text timerText;*/
 
     public bool isTimerRunning;
     public bool win; // Variable provisoire
@@ -57,6 +57,6 @@ public class Reset : MonoBehaviour {
 
     // Affiche le temps restant avant le reset
     private void PrintTime(float time) {
-        timerText.text = "Reset dans " + time.ToString() + "s";
+/*        timerText.text = "Reset dans " + time.ToString() + "s";*/
     }
 }
