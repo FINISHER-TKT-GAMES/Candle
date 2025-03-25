@@ -1,31 +1,60 @@
 using System.Collections;
+using UnityEditor.Animations;
 using UnityEngine;
 
-public class Burn : MonoBehaviour {
+public class Burn : MonoBehaviour
+{
 
     [SerializeField]
     private PlayerManager player;
 
-    public GameObject fire;
+    public GameObject[] List_Vines;
+
+    private Animator animator;
 
     public int burnTime;
     private int burningTime = 0;
 
+    private int animation = 0;
 
-    public void OnTriggerStay(Collider @object) {
+    private bool isTimerRunning;
+
+    public void Start()
+    {
+        animator = GetComponent<Animator>();
+        StartCoroutine(Time(1));
+    }
+
+
+    public void OnTriggerStay(Collider @object)
+    {
+        print(animator);
         if (@object.CompareTag("Player") && player.data.movementState == PlayerData.MovementState.bending) {
-            StartCoroutine(StartBurn());
+
         }
     }
 
-    private IEnumerator StartBurn() {
-        while (burningTime < burnTime) {
-            fire.SetActive(true);
+    public IEnumerator Time(float time) {
+        while (time >= 0) {
             yield return new WaitForSeconds(1);
-            burningTime++;
+            time--;
         }
-        Debug.Log("Burning object");
-        fire.SetActive(false);
-        Destroy(gameObject);
+        List_Vines[animation].GetComponent<Animator>().SetBool("Start", true);
+        animation++;
+        StartCoroutine(Time(1));
     }
+
+
+
+    /*public void Update()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("New Animation6"))
+        {
+            Destroy(this);
+        }
+    }*/
+
+
+
 }
+
