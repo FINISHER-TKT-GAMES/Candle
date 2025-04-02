@@ -18,13 +18,7 @@ public class PlayerInteraction : MonoBehaviour {
         else {
             player.ChangeState("playing");
         }
-
-        if (Input.GetKey(Game.ctrl.interact)) {
-            player.data.isInteracting = true;
-        }
-        else {
-            player.data.isInteracting = false;
-        }
+        
     }
 
     void OnDrawGizmosSelected() {

@@ -9,24 +9,37 @@ public class Interaction : MonoBehaviour {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private Text dialogue;
 
+    [SerializeField] private string characterName;
+    [SerializeField] private Text textName;
+
     private bool isDialogueRunning;
     public string[] allDialogues;
     private string currentDialogue;
     private int numberDialogue;
+    private int progressDialogue;
 
     private bool isCooldownActive;
-    
+    private IEnumerator textAnim;
+
+    void Start() {
+        textName.text = characterName;
+        dialogueBox.SetActive(false);
+    }
+
 
     void Update() {
-        if (Input.GetKey(KeyCode.Return) && isDialogueRunning && !isCooldownActive) {
+        if (Input.GetKeyDown(KeyCode.Return) && isDialogueRunning && isCooldownActive) {
+            StopCoroutine(textAnim);
+            dialogue.text = currentDialogue;
+            isCooldownActive = false;
+        } else if (Input.GetKeyDown(KeyCode.Return) && isDialogueRunning && !isCooldownActive) {
             NextDialogue();
         }
     }
 
     private void OnTriggerStay(Collider collider) {
-        if (player.data.isInteracting) {
-        collider.gameObject.SetActive(true);
-        StartInteracting();  
+        if (Input.GetKeyDown(Game.ctrl.interact) && !isDialogueRunning) { // press e
+            StartInteracting();
         }
     }
 
@@ -34,25 +47,36 @@ public class Interaction : MonoBehaviour {
     // Lance l'intéraction avec le NPC
     private void StartInteracting() {
         isDialogueRunning = true;
-        player.data.Speed = 0;
+        player.playerMovement.enabled = false;
+        player.data.velocity = Vector3.zero;
         dialogueBox.SetActive(true);
         numberDialogue = 0;
         currentDialogue = allDialogues[numberDialogue];
-        dialogue.text = currentDialogue;
+        StartCoroutine(textAnim = TextAnim(0.08f));
     }
 
     // Affiche le prochain dialogue
     private void NextDialogue() {
         Debug.Log("Showing next dialogue");
-        StartCoroutine(CooldownDialogue(1));
         if (numberDialogue < allDialogues.Length-1) {
             numberDialogue++;
             currentDialogue = allDialogues[numberDialogue];
-            dialogue.text = currentDialogue;
+            StartCoroutine(textAnim = TextAnim(0.08f));
         }
         else {
             StopIntecracting();
         }
+    }
+
+    private IEnumerator TextAnim(float time) {
+        progressDialogue = 0;
+        while (progressDialogue < currentDialogue.Length) {
+            isCooldownActive = true;
+            progressDialogue++;
+            dialogue.text = currentDialogue.Substring(0, progressDialogue);
+            yield return new WaitForSeconds(time);
+        }
+        isCooldownActive = false;
     }
 
     // Arrête l'intéraction avec le personnage
@@ -60,13 +84,6 @@ public class Interaction : MonoBehaviour {
         Debug.Log("Stopping interaction with NPC");
         isDialogueRunning = false;
         dialogueBox.SetActive(false);
-        player.data.Speed = 10;
-    }
-
-    // Cooldown method to prevent spamming dialogues
-    public IEnumerator CooldownDialogue(float time) {
-        isCooldownActive = true;
-        yield return new WaitForSeconds(time);
-        isCooldownActive = false;
+        player.playerMovement.enabled = true;
     }
 }
