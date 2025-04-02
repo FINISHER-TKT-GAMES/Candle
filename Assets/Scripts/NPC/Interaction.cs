@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,18 +8,14 @@ public class Interaction : MonoBehaviour {
 
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private Text dialogue;
-    [SerializeField] private bool isDialogueRunning;
 
+    private bool isDialogueRunning;
     public string[] allDialogues;
-    [SerializeField] private string currentDialogue;
-    [SerializeField] private int numberDialogue;
+    private string currentDialogue;
+    private int numberDialogue;
 
     private bool isCooldownActive;
     
-
-    void Start() {
-        CreateDialogue();
-    }
 
     void Update() {
         if (Input.GetKey(KeyCode.Return) && isDialogueRunning && !isCooldownActive) {
@@ -36,14 +30,6 @@ public class Interaction : MonoBehaviour {
         }
     }
 
-
-    // Créer tous les dialogues du NPC
-    public void CreateDialogue() {
-        allDialogues = new string[] {
-            "Hello",
-            "Welcome to the Village"
-        };
-    }
 
     // Lance l'intéraction avec le NPC
     private void StartInteracting() {
