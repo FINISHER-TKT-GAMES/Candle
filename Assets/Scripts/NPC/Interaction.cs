@@ -12,6 +12,8 @@ public class Interaction : MonoBehaviour {
     [SerializeField] private string characterName;
     [SerializeField] private Text textName;
 
+    [SerializeField] private GameObject passSign;
+
     private bool isDialogueRunning;
     public string[] allDialogues;
     private string currentDialogue;
@@ -24,6 +26,7 @@ public class Interaction : MonoBehaviour {
     void Start() {
         textName.text = characterName;
         dialogueBox.SetActive(false);
+        passSign.SetActive(false);
     }
 
 
@@ -32,6 +35,8 @@ public class Interaction : MonoBehaviour {
             StopCoroutine(textAnim);
             dialogue.text = currentDialogue;
             isCooldownActive = false;
+            passSign.SetActive(true);
+            
         } else if (Input.GetKeyDown(KeyCode.Return) && isDialogueRunning && !isCooldownActive) {
             NextDialogue();
         }
@@ -57,8 +62,8 @@ public class Interaction : MonoBehaviour {
 
     // Affiche le prochain dialogue
     private void NextDialogue() {
-        Debug.Log("Showing next dialogue");
         if (numberDialogue < allDialogues.Length-1) {
+            passSign.SetActive(false);
             numberDialogue++;
             currentDialogue = allDialogues[numberDialogue];
             StartCoroutine(textAnim = TextAnim(0.08f));
@@ -77,6 +82,7 @@ public class Interaction : MonoBehaviour {
             yield return new WaitForSeconds(time);
         }
         isCooldownActive = false;
+        passSign.SetActive(true);
     }
 
     // Arrête l'intéraction avec le personnage
