@@ -33,6 +33,9 @@ public class PlayerData : ScriptableObject {
     public float reach; // Distance max d'intéraction avec des éléments du jeu
     public float temperature; // Température du joueur
 
+    [Header("Triggers")]
+    public bool isInteracting;
+
     [Header("Niveaux de cire")]
     public float wax; // Taux de cire acculmulé par le joueur
     public float waxSpawn; // Taux de cire de départ

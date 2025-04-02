@@ -1,8 +1,7 @@
 using UnityEngine;
 using Unity.Cinemachine;
 
-public class PlayerInteraction : MonoBehaviour
-{
+public class PlayerInteraction : MonoBehaviour {
 
     public PlayerManager player;
     public Transform climbCheck;
@@ -11,35 +10,24 @@ public class PlayerInteraction : MonoBehaviour
 
     public Transform character;
 
-    
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (Physics.Raycast(character.transform.position, character.transform.forward, out player.data.hit, 2f, climbLayer)) {
             player.ChangeState("climbing");
-            
-        } else
-        {
+        } 
+        else {
             player.ChangeState("playing");
+        }
+
+        if (Input.GetKey(Game.ctrl.interact)) {
+            player.data.isInteracting = true;
         }
     }
 
-    void OnDrawGizmosSelected()
-    {
-        // Visualiser le raycast de détection du mur
+    void OnDrawGizmosSelected() {
+        // Visualiser le raycast de dï¿½tection du mur
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(character.transform.position, character.transform.forward * 2f);
     }
-
-
-
-
 
 }
