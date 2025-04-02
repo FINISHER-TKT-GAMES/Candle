@@ -22,6 +22,9 @@ public class PlayerInteraction : MonoBehaviour {
         if (Input.GetKey(Game.ctrl.interact)) {
             player.data.isInteracting = true;
         }
+        else {
+            player.data.isInteracting = false;
+        }
     }
 
     void OnDrawGizmosSelected() {
