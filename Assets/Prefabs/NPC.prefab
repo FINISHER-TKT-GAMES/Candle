@@ -114,9 +114,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7080056800373701682}
   - component: {fileID: 5577392683068876888}
+  - component: {fileID: 6466778467810498191}
   - component: {fileID: 7233301089792687488}
   - component: {fileID: 2798903445252404830}
-  - component: {fileID: 747948395557110658}
+  - component: {fileID: 7653331173638436412}
+  - component: {fileID: 5806419238990045418}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -161,6 +163,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4, y: 3, z: 4}
   m_Center: {x: 0, y: 1.51, z: 0}
+--- !u!136 &6466778467810498191
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8366228271248665142}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.65
+  m_Height: 3.13
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.46, z: 0}
 --- !u!54 &7233301089792687488
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -203,9 +228,12 @@ MonoBehaviour:
   player: {fileID: 0}
   dialogueBox: {fileID: 0}
   dialogue: {fileID: 0}
+  characterName: 
+  textName: {fileID: 0}
+  passSign: {fileID: 0}
   allDialogues:
   - Bonjour
---- !u!114 &747948395557110658
+--- !u!114 &7653331173638436412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,7 +242,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 8366228271248665142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3f532f96396f11db8b784cf2d854a29, type: 3}
+  m_Script: {fileID: 11500000, guid: 8df73926ff613f3fcbb9cbd130ed9854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 7233301089792687488}
+  agent: {fileID: 5806419238990045418}
+  npc: {fileID: 7080056800373701682}
+  pattern: {x: 0, y: 0, z: 0}
+--- !u!195 &5806419238990045418
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8366228271248665142}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

@@ -44,7 +44,7 @@ public class Reset : MonoBehaviour {
     // Fonction pour reset le monde une fois la boucle terminée
     public void ResetWorld() {
         Debug.Log("Reset!");
-        SceneManager.LoadScene("test");
+        // SceneManager.LoadScene("test");
         StopTime();
     }
 
