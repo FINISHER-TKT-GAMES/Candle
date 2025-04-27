@@ -52,6 +52,7 @@ public class Interaction : MonoBehaviour {
     // Lance l'intéraction avec le NPC
     private void StartInteracting() {
         isDialogueRunning = true;
+        player.data.isInteracting = true;
         player.playerMovement.enabled = false;
         player.data.velocity = Vector3.zero;
         dialogueBox.SetActive(true);
@@ -91,5 +92,6 @@ public class Interaction : MonoBehaviour {
         isDialogueRunning = false;
         dialogueBox.SetActive(false);
         player.playerMovement.enabled = true;
+        player.data.isInteracting = false;
     }
 }

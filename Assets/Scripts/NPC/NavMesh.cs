@@ -1,7 +1,10 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class NavMesh : MonoBehaviour {
+
+    public PlayerManager player;
 
     public NavMeshAgent agent;
     public Transform npc;
@@ -17,15 +20,21 @@ public class NavMesh : MonoBehaviour {
     void Start() {
         origin = npc.position;
         arrived = false;
+        player.data.isInteracting = false;
     }
 
     void Update() {
-        CheckState();
-        if (state == State.at_origin) {
-            agent.SetDestination(pattern.position);
-        }
-        else if (state == State.at_pattern) {
-            agent.SetDestination(origin);
+        if (!player.data.isInteracting) {
+            if (!agent.isStopped) {
+                Cycle();
+            } 
+            else {
+                agent.isStopped = false;
+                Cycle();
+            }
+        } 
+        else {
+            agent.isStopped = true;
         }
     }
 
@@ -41,6 +50,16 @@ public class NavMesh : MonoBehaviour {
         }
         else {
             state = State.travelling;
+        }
+    }
+
+    private void Cycle() {
+        CheckState();
+        if (state == State.at_origin) {
+            agent.SetDestination(pattern.position);
+        }
+        else if (state == State.at_pattern) {
+            agent.SetDestination(origin);
         }
     }
 }
